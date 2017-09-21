@@ -11,12 +11,13 @@ const context = '/wechat-web'
 process.env.NODE_ENV = 'production'
 
 module.exports = {
-  entry: [
-    './src/index.tsx'
-  ],
+  entry: {
+    'index': './js/index.js',
+    'post': './js/post.js',
+  },
   output: {
-    path: __dirname + '/build/prod/',
-    filename: 'bundle' + '.min.js',
+    path: __dirname + '/build/',
+    filename: '[name]' + '.min.js',
     publicPath: `${context}/wechat/prod`,
   },
   resolve: {
@@ -37,11 +38,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('style' + '.min.css'),
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require('./manifest.json')
-    }),
+    new ExtractTextPlugin('[name]' + '.min.css'),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
