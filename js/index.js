@@ -1,176 +1,178 @@
-layui.use(['jquery', 'form'], function() {
-	var $ = layui.jquery,
-		layer = layui.layer,
-		form = layui.form();
-	$().ready(function() {
+import '../css/index.scss'
 
-		//		var url = location.href
+layui.use(['jquery', 'form'], function () {
+  var $ = layui.jquery,
+    layer = layui.layer,
+    form = layui.form()
+  $().ready(function () {
 
-		var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232&doctor_phone=6c0b513bb1c751a19ac6465b9db837e9'
+    //		var url = location.href
 
-			,
-			userId_startIndex = url.indexOf('user_id=') + 8
+    var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232&doctor_phone=6c0b513bb1c751a19ac6465b9db837e9'
 
-			,
-			userId_endIndex = url.indexOf("&")
+      ,
+      userId_startIndex = url.indexOf('user_id=') + 8
 
-			,
-			user_Id = url.slice(userId_startIndex, userId_endIndex)
+      ,
+      userId_endIndex = url.indexOf('&')
 
-			,
-			doctorPhone_startIndex = url.indexOf('doctor_phone=') + 13
+      ,
+      user_Id = url.slice(userId_startIndex, userId_endIndex)
 
-			,
-			doctor_Phone = url.slice(doctorPhone_startIndex);
+      ,
+      doctorPhone_startIndex = url.indexOf('doctor_phone=') + 13
 
-		//获取患者
+      ,
+      doctor_Phone = url.slice(doctorPhone_startIndex)
 
-		console.log(user_Id);
+    //获取患者
 
-		//获取医生
+    console.log(user_Id)
 
-		console.log(doctor_Phone);
+    //获取医生
 
-		var doctor_phone = doctor_Phone,
+    console.log(doctor_Phone)
 
-			userId = user_Id;
+    var doctor_phone = doctor_Phone,
 
-			var Main = {
-				url: "http://localhost:8080",
-				urll: function(data) {
-					return this.url + data
-				}
-			}
+      userId = user_Id
 
-		//判断手机号码格式
-		function phoneN() {
-			var phone = $('.ol-phone').val()
-			if(/^1[34578]\d{9}$/.test(phone) === false) {
-				layer.msg("手机号码有误，请重填");
-				return false
-			} else {
-				return true
-			}
-		}
+    var Main = {
+      url: 'http://localhost:8080',
+      urll: function (data) {
+        return this.url + data
+      }
+    }
 
-		//是否显示密码
+    //判断手机号码格式
+    function phoneN() {
+      var phone = $('.ol-phone').val()
+      if (/^1[34578]\d{9}$/.test(phone) === false) {
+        layer.msg('手机号码有误，请重填')
+        return false
+      } else {
+        return true
+      }
+    }
 
-		$('.ol-light').on('click', function() {
-			var input = document.getElementById("ol_ps");
-			if(input.type == 'password') {
-				input.type = 'Text'
-				$('#dark').attr("src", "/wechat-web/wechat/img/light.png")
+    //是否显示密码
 
-			} else if(input.type = 'Text') {
-				input.type = 'password'
-				$('#dark').attr("src", "/wechat-web/wechat/img/dark.png")
-			}
-		})
+    $('.ol-light').on('click', function () {
+      var input = document.getElementById('ol_ps')
+      if (input.type == 'password') {
+        input.type = 'Text'
+        $('#dark').attr('src', '/wechat-web/wechat/img/light.png')
 
-		//提交判定
-		$('#ol-submit').on('click', function() {
-			var password = md5($('.ol-ps').val()).toLocaleUpperCase()
-			console.log(password)
-			var url = Main.urll("/wechat-web/wechat/login/") + $('.ol-phone').val() + '/' + password + '/' + 1 + '?openid=' + layui.data('openid').openid
-			console.log(url)
-			if(phoneN() === true) {
-				$.ajax({
-					type: "get",
-					url: url,
-					async: true,
-					success: function(data) {
+      } else if (input.type = 'Text') {
+        input.type = 'password'
+        $('#dark').attr('src', '/wechat-web/wechat/img/dark.png')
+      }
+    })
 
-						var user_ol = data
+    //提交判定
+    $('#ol-submit').on('click', function () {
+      var password = md5($('.ol-ps').val()).toLocaleUpperCase()
+      console.log(password)
+      var url = Main.urll('/wechat-web/wechat/login/') + $('.ol-phone').val() + '/' + password + '/' + 1 + '?openid=' + layui.data('openid').openid
+      console.log(url)
+      if (phoneN() === true) {
+        $.ajax({
+          type: 'get',
+          url: url,
+          async: true,
+          success: function (data) {
 
-						console.log(user_ol)
+            var user_ol = data
 
-						if(data.status === 0) {
-							layer.msg(data.rspMsg)
-							layui.data('userData', {
-								key: 'user2',
-								value: data.data.id
-							})
+            console.log(user_ol)
 
-							var basic_url = Main.urll('/wechat-web/wechat/getPatientInfo/') + layui.data('userData').user2
+            if (data.status === 0) {
+              layer.msg(data.rspMsg)
+              layui.data('userData', {
+                key: 'user2',
+                value: data.data.id
+              })
 
-							console.log(basic_url);
+              var basic_url = Main.urll('/wechat-web/wechat/getPatientInfo/') + layui.data('userData').user2
 
-							$.ajax({
-								type: "get",
-								url: basic_url,
-								async: true,
-								dataType: 'json',
-								contentType: 'application/json;charset=utf-8',
-								success: function(data) {
-									console.log(data)
+              console.log(basic_url)
 
-									layui.data('userData', {
-										key: 'user2',
-										value: data.id
-									})
+              $.ajax({
+                type: 'get',
+                url: basic_url,
+                async: true,
+                dataType: 'json',
+                contentType: 'application/json;charset=utf-8',
+                success: function (data) {
+                  console.log(data)
 
-									layui.data('userData', {
-										key: 'user',
-										value: data
-									})
-									var user_info = layui.data('userData').user.data;
+                  layui.data('userData', {
+                    key: 'user2',
+                    value: data.id
+                  })
 
-									if(user_info == null) {
+                  layui.data('userData', {
+                    key: 'user',
+                    value: data
+                  })
+                  var user_info = layui.data('userData').user.data
 
-										location.href = "/wechat-web/wechat/basic_info.html";
+                  if (user_info == null) {
 
-									}
+                    location.href = '/wechat-web/wechat/basic_info.html'
 
-									console.log(user_info)
+                  }
 
-									console.log(user_info.full_Name && user_info.birth_Date && user_info.nation && user_info.is_Hepatitis && user_info.pregnant_Status)
+                  console.log(user_info)
 
-									if(!user_info.full_Name || !user_info.birth_Date || !user_info.nation || !user_info.is_Hepatitis || !user_info.pregnant_Status) {
+                  console.log(user_info.full_Name && user_info.birth_Date && user_info.nation && user_info.is_Hepatitis && user_info.pregnant_Status)
 
-										location.href = '/wechat-web/wechat/basic_info.html';
+                  if (!user_info.full_Name || !user_info.birth_Date || !user_info.nation || !user_info.is_Hepatitis || !user_info.pregnant_Status) {
 
-									}
+                    location.href = '/wechat-web/wechat/basic_info.html'
 
-									var isTurnBingUrl = 'http://localhost:8080/wechat-web/wechat/trunBindDoctorLink?patient_user_id=' + user_Id + '&doctor_phone=' + doctor_phone
-									console.log(isTurnBingUrl)
-									$.ajax({
-										type: "get",
-										url: isTurnBingUrl,
-										async: true,
-										dataType: 'json',
-										contentType: 'application/json;charset=utf-8',
-										success: function(data) {
-											console.log(data)
-											if(data.data == true) {
-												location.href = '/wechat-web/wechat/bind_doctor.html'
-											} else if(data.data == false) {
-												location.href = '/wechat-web/wechat/post.html'
-											}
-										},
-										error: function() {
+                  }
 
-										}
+                  var isTurnBingUrl = 'http://localhost:8080/wechat-web/wechat/trunBindDoctorLink?patient_user_id=' + user_Id + '&doctor_phone=' + doctor_phone
+                  console.log(isTurnBingUrl)
+                  $.ajax({
+                    type: 'get',
+                    url: isTurnBingUrl,
+                    async: true,
+                    dataType: 'json',
+                    contentType: 'application/json;charset=utf-8',
+                    success: function (data) {
+                      console.log(data)
+                      if (data.data == true) {
+                        location.href = '/wechat-web/wechat/bind_doctor.html'
+                      } else if (data.data == false) {
+                        location.href = '/wechat-web/wechat/post.html'
+                      }
+                    },
+                    error: function () {
 
-									});
-								},
-								error: function() {
+                    }
 
-								}
-							});
+                  })
+                },
+                error: function () {
 
-							return true;
-						} else {
-							layer.msg(data.rspMsg)
-							return false;
-						}
-					},
-					error: function(data) {
-						console.log(data)
-					}
-				});
-			}
-		})
-		//保存用户  
+                }
+              })
 
-	})
+              return true
+            } else {
+              layer.msg(data.rspMsg)
+              return false
+            }
+          },
+          error: function (data) {
+            console.log(data)
+          }
+        })
+      }
+    })
+    //保存用户
+
+  })
 })
