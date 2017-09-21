@@ -1,0 +1,365 @@
+html,
+body,
+header,
+div,
+input,
+button,
+a {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    font-size: 16px;
+}
+
+#bigBox {
+    position: relative;
+    width: 100%;
+    height: 12rem;
+}
+
+#basicBGBox {
+    width: 100%;
+    height: 9rem;
+    position: relative;
+}
+
+#basicImg {
+    width: 100%;
+    height: 100%;
+}
+
+#Htitle {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 1rem;
+    margin-top: 0.8rem;
+    font-weight: 600;
+}
+
+#photo {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -50px;
+}
+
+.r-name {
+    width: 100%;
+    height: 4rem;
+    //  border: 1px solid black;
+}
+
+.n-name {
+    float: left;
+    width: 20%;
+    height: 4rem;
+    border: none;
+    line-height: 4rem;
+    //      background: yellow;
+    padding-left: 5%;
+    color: rgb(178, 178, 178);
+    font-size: 0.8rem;
+    //  border: 1px solid black;
+}
+
+@mixin ipt {
+    float: left;
+    width: 65%;
+    padding: 1.45rem 0;
+    border: none;
+    text-align: right;
+    border-radius: 0;
+    border-bottom: 1px solid rgb( 228, 228, 228);
+    //  border: 1px solid red;
+}
+
+#real-name {
+    @include ipt;
+    border-bottom: 1px solid rgb( 228, 228, 228);
+    padding-right: 5%;
+    //  background: red;
+}
+
+#date {
+    -webkit-appearance: none;
+    float: left;
+    width: 65%;
+    padding-right: 5%;
+    border: none;
+    text-align: right;
+    border-bottom: 1px solid rgb( 228, 228, 228);
+    border-radius: 0;
+    height: 3.9rem;
+    background-color: #FFFFFF;
+    line-height: 3.9rem;
+    //  border:1px solid red;
+}
+.MMMdate{
+    text-align: center;
+}
+//remove date down button
+//input[type="date"]::-webkit-calendar-picker-indicator {
+//  display: none;
+//}
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+.mgtop {
+    //  border: 1px solid red;
+    margin-top: 0.4rem;
+}
+
+@mixin radio {
+    float: left;
+    width: 70%;
+//  padding: 0.9rem 0;
+    border: none;
+    text-align: right;
+    //  border-bottom: 1px solid rgb( 228, 228, 228);
+    border-radius: 0, 0, 0, 0;
+    margin-top: 1px;
+    //  border: 1px solid black;
+}
+
+.nation {
+    @include radio;
+    //  background: gold;
+    border-bottom: 1px solid rgb( 228, 228, 228);
+    padding: 0.9rem 0;
+}
+
+.isH {
+    @include radio;
+    border-bottom: 1px solid rgb( 228, 228, 228)!important;
+    padding: 0.9rem 0;
+}
+
+.isPregnant {
+    @include radio;
+    border-bottom: 1px solid rgb( 228, 228, 228)!important;
+    padding: 0.9rem 0;
+}
+
+.smtBox {
+    width: 100%;
+    //  background: red;
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.next {
+    width: 80%;
+    border-radius: 1rem;
+    background-color: #6993FF;
+    margin: auto;
+    color: #FFFFFF;
+}
+
+.prompt {
+    margin: 1rem;
+    color: rgb(156, 164, 175);
+    font-size: 0.8rem;
+}
+
+.menses {
+    @extend #date;
+    width: 45%;
+    height: 100%;
+}
+
+.estimate {
+    float: left;
+    width: 20%;
+    //  background: red;
+    height: 100%;
+    border-bottom: 1px solid rgb( 228, 228, 228);
+    //  background: green;
+//  border-top: 1px solid rgb( 228, 228, 228);
+    .estimate_box {
+        width: 100%;
+        height: 50%;
+        //      background: pink;
+        text-align: center;
+        .estimate_img {
+            margin-top: 0.5rem;
+            width: 1.5rem;
+            height: 1.2rem;
+        }
+    }
+    .estimate_word {
+        width: 100%;
+        height: 50%;
+        //      background: yellow;
+        text-align: center;
+        line-height: 2rem;
+    }
+}
+.estimate_time{
+    @extend .estimate;
+    #birth_time{
+        -webkit-appearance: none;
+        border: none;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+}
+.birth_time{
+    @extend .last_menses;
+}
+.layerDiy_box {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    .layerDiy {
+        width: 80%;
+        height: 23.5rem;
+        background-color: #FFFFFF;
+        position: relative;
+        left: 50%;
+        margin-left: -40%;
+        top: 50%;
+        margin-top: -11.75rem;
+        .layerDiy_title {
+            width: 100%;
+            height: 5.3rem;
+            //          background: pink;
+            text-align: center;
+            line-height: 5.3rem;
+            border-bottom: 2px solid rgb(240, 240, 240);
+            .last_calc {
+                font-size: 1.3rem!important;
+            }
+        }
+        .willBirth {
+            width: 100%;
+            height: 3.3rem;
+            position: relative;
+            border-bottom: 2px solid rgb(240, 240, 240);
+            .willBirth_left {
+                //              background: yellow;
+                width: 40%;
+                padding-left: 8%;
+                height: 100%;
+                float: left;
+                line-height: 3.3rem;
+                color: rgb(100, 101, 111);
+            }
+            .willBirth_right {
+                -webkit-appearance: none;
+                width: 35%;
+                padding-left: 10%;
+                text-align: right;
+                height: 3.3rem;
+                border-radius: 0;
+                border: 0;
+                //              background: red;
+            }
+        }
+        .pro {
+            width: 100%;
+            height: 4.8rem;
+            //          background: blue;
+            border-bottom: 2px solid rgb(240, 240, 240);
+            .pro_word {
+                width: 80%;
+                color: #C2C2C2;
+                margin: auto;
+                padding-top: 1rem;
+                //              background: red;
+            }
+        }
+        .calc_date {
+            width: 100%;
+            height: 3.3rem;
+            position: relative;
+            border-bottom: 2px solid rgb(240, 240, 240);
+            //          background: red;
+            .calc_date_left {
+                width: 40%;
+                float: left;
+                height: 100%;
+                padding-left: 8%;
+                //              background: yellow;
+                text-align: left;
+                line-height: 3.3rem;
+                color: rgb(100, 101, 111);
+            }
+            .calc_date_right {
+                width: 40%;
+                float: right;
+                padding-right: 8%;
+                height: 100%;
+                text-align: right;
+                //              background: green;
+                line-height: 3.3rem;
+                color: #C2C2C2;
+            }
+        }
+        .close {
+            position: absolute;
+            right: 1rem;
+            top: 1.5rem;
+            .close_x {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .sure_box {
+            width: 100%;
+            height: 6rem;
+            //          background: red;
+            line-height: 6rem;
+            text-align: center;
+        }
+        #sure {
+            width: 80%;
+            height: 3.3rem;
+            background-color: rgb(82, 200, 253);
+            border: none;
+            color: #FFFFFF;
+            border-radius: 5px;
+            font-size: 1.2rem!important;
+        }
+    }
+}
+
+.last_menses {
+    display: none;
+}
+
+@media only screen and (max-width: 386px) {
+    html {
+        font-size: 12px!important;
+    }
+    * {
+        font-size: 12px!important;
+    }
+    .n-name {
+        width: 6rem;
+    }
+    .nation {
+        padding: 0.4rem 0;
+    }
+    .isH {
+        padding: 0.4rem 0;
+    }
+    .isPregnant {
+        padding: 0.4rem 0;
+    }
+}

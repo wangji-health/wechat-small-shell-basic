@@ -1,0 +1,490 @@
+html,
+body,
+header,
+div,
+input,
+button,
+a {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(243, 248, 252);
+}
+
+html {
+    font-size: 16px;
+}
+
+p {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+span {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.top {
+    width: 100%;
+    height: 1rem;
+}
+
+.birth_timeBox {
+    width: 90%;
+    height: 3.5rem;
+    //  background-color: red;
+    padding: 0 5%;
+    position: relative;
+}
+
+input {
+    background-color: transparent;
+    border-color: transparent;
+    -webkit-appearance: none;
+}
+
+::-webkit-input-placeholder {
+    font-size: 0.85rem;
+}
+
+.bd {
+    width: 100%;
+    height: 3.5rem;
+    border-bottom: 1px solid rgb(240, 240, 240);
+    background-color: #FFFFFF;
+}
+
+.birth {
+    width: 33.3%;
+    height: 3.5rem;
+    //  background: yellow;
+    float: left;
+    line-height: 3.5rem;
+    font-size: 1rem;
+    color: rgb(60, 71, 71);
+}
+
+.birth_date {
+    @extend .birth;
+    //  background: green;
+    text-align: center;
+    color: rgb(135, 145, 163);
+}
+
+.birth_time {
+    @extend .birth;
+    //  background: palevioletred;
+    text-align: right;
+    color: rgb(135, 145, 163);
+}
+
+#date {
+    //  background: red;
+    position: absolute;
+    width: 30%;
+    height: 3.5rem;
+    left: 33%;
+    top: 0;
+    opacity: 0;
+}
+
+#time {
+    //  background: green;
+    position: absolute;
+    width: 30%;
+    height: 3.5rem;
+    right: 5%;
+    top: 0;
+    opacity: 0;
+}
+
+.babyBox {
+    @extend .birth_timeBox;
+    background-color: #FFFFFF;
+}
+
+.babyNum {
+    @extend .birth;
+    width: 25%;
+    color: rgb(60, 71, 71);
+}
+
+.babyNumBox {
+    width: 75%;
+    height: 3.5rem;
+    //      background-color: red;
+    float: left;
+}
+
+.bb1 {
+    width: 33.33%;
+    height: 3.5rem;
+    //  background: greenyellow;
+    float: left;
+}
+
+.word {
+    float: left;
+    line-height: 3.5rem;
+}
+
+.bb2 {
+    @extend .bb1;
+    //  background-color: pink;
+}
+
+.bb2 {
+    @extend .bb1;
+    //  background-color: aquamarine;
+}
+
+.check1 {
+    width: 1.5rem;
+    height: 3.5rem;
+    //  background-color: #4EDCFF;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    float: left;
+    .imgBox {
+        width: 1.2rem;
+        height: 1.2rem;
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.check2 {
+    @extend .check1;
+}
+
+.check3 {
+    @extend .check1;
+}
+
+.imgBox2 {
+    @extend .imgBox;
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.imgBox3 {
+    @extend .imgBox;
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.baby_infoBox {
+    width: 90%;
+    height: 2.5rem;
+    padding: 0 5%;
+    line-height: 2.5rem;
+    font-size: 1rem;
+    color: rgb(138, 148, 166);
+}
+
+.height {
+    @extend .bd;
+    position: relative;
+}
+
+.cm {
+    float: right;
+    height: 3.5rem;
+    line-height: 3.5rem;
+}
+
+#height {
+    //  background-color: pink;
+    width: 3rem;
+    float: right;
+    border: none;
+    border-radius: 0;
+    height: 1rem;
+    padding: 1.25rem 0;
+    text-align: right;
+    padding-right: 0.5rem;
+}
+
+#weight {
+    @extend #height;
+}
+
+.weight {
+    @extend .height;
+}
+
+.g {
+    @extend .cm
+}
+
+#tall {
+    position: absolute;
+    //  background-color: aquamarine;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    top: 0;
+    left: 5%;
+    font-size: 1rem;
+    color: rgb(60, 71, 71);
+}
+
+#wg {
+    @extend #tall;
+}
+
+label {
+    width: 90%;
+    padding: 0 5%;
+    height: 3.5rem;
+    //  background-color: red;
+    display: inline-block
+}
+
+.badBox {
+    @extend .babyBox;
+}
+
+.badNum {
+    @extend .babyNum;
+    //  width: ;
+    //  background-color: lightskyblue;
+    width: 30%;
+    min-width: 7rem;
+}
+
+.badNumBox {
+    @extend .babyNumBox;
+    float: right;
+    //  background-color: red;
+    width: 30%;
+}
+
+.bad1 {
+    @extend .bb1;
+    width: 50%;
+}
+
+.bad2 {
+    @extend .bb1;
+    width: 50%;
+}
+
+.iimgBox {
+    @extend .imgBox;
+}
+
+.iimgBox2 {
+    @extend .imgBox;
+}
+
+.ccheck1 {
+    @extend .check1;
+}
+
+.ccheck2 {
+    @extend .check2;
+}
+
+.sickNameBox {
+    @extend .height;
+    display: none;
+    border-top: 1px solid rgb(240, 240, 240);
+    border-bottom: none;
+}
+
+#NM {
+    @extend #wg;
+}
+
+#sickName {
+    @extend #weight;
+    width: 75%;
+    font-size: 1rem;
+}
+
+.no {
+    @extend .g;
+}
+
+.point {
+    margin-top: 2.5rem;
+    width: 100%;
+    height: 0.9rem;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    //  padding-bottom: 10rem;
+    //      background-color: red;
+    .star {
+        width: 0.9rem;
+        height: 0.9rem;
+        float: left;
+        //      background-color: yellow;
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+    .p_w {
+        float: left;
+        font-size: 0.9rem;
+        text-decoration: none;
+        height: 0.9rem;
+        line-height: 0.9rem;
+    }
+}
+
+#saveBox {
+    position: fixed;
+    background-color: rgb(243, 248, 252);
+    width: 100%;
+    height: 6rem;
+    bottom: 0;
+    left: 0;
+    .save {
+        width: 90%;
+        height: 3rem;
+        text-align: center;
+        line-height: 3rem;
+        background-color: rgb(212, 217, 218);
+        color: #FFFFFF;
+        position: fixed;
+        left: 5%;
+        bottom: 1.5rem;
+        font-size: 1rem;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+}
+
+.sickNameBox2 {
+    @extend .sickNameBox;
+    border-bottom: none;
+}
+
+#sickName2 {
+    @extend #sickName;
+}
+
+.sickNameBox3 {
+    @extend .sickNameBox;
+    border-bottom: none;
+}
+
+#sickName3 {
+    @extend #sickName;
+}
+
+#height2 {
+    @extend #height;
+}
+
+#height3 {
+    @extend #height;
+}
+
+#weight2 {
+    @extend #weight
+}
+
+#weight3 {
+    @extend #weight
+}
+
+.badNumBox2 {
+    @extend .badNumBox;
+}
+
+.badNumBox3 {
+    @extend .badNumBox;
+}
+
+.baby_infoBox2 {
+    @extend .baby_infoBox
+}
+
+.baby_infoBox3 {
+    @extend .baby_infoBox
+}
+
+#baby2 {
+    display: none;
+}
+
+#baby3 {
+    display: none;
+    margin-bottom: 7rem;
+}
+
+@media only screen and (max-width: 360px) {
+    html {
+        font-size: 12px!important;
+    }
+    .point {
+        height: 1rem;
+        .star {
+            width: 1rem;
+            height: 1rem;
+        }
+        .p_w {
+            font-size: 1rem;
+            text-decoration: none;
+            height: 1rem;
+            line-height: 1rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 360px)and (max-width: 386px) {
+    html {
+        font-size: 14px!important;
+    }
+    .point {
+        height: 1rem;
+        .star {
+            width: 1rem;
+            height: 1rem;
+        }
+        .p_w {
+            font-size: 1rem;
+            text-decoration: none;
+            height: 1rem;
+            line-height: 1rem;
+        }
+    }
+}

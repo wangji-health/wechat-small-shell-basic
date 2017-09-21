@@ -1,0 +1,205 @@
+html,
+body,
+header,
+div,
+input,
+button,
+a,
+span {
+    margin: 0;
+    padding: 0;
+}
+
+span {
+    //  line-height: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: rgb(243, 248, 252);
+    width: 100%;
+    height: 100%;
+}
+
+.banner {
+    width: 100%;
+    height: 16.875rem;
+    background: url(../img/antivirus.png);
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wordBox {
+    width: 61.5%;
+    height: 70.5%;
+    //  background: red;
+    position: relative;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.word1 {
+    width: 7rem;
+    height: 1.75rem;
+    font-size: 0.75rem;
+    text-align: center;
+    line-height: 1.75rem;
+    border-radius: 25px;
+    color: #FFFFFF;
+}
+
+.word2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgb(243, 248, 252);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.hasB {
+    border: 1px solid rgb(220, 225, 235);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.medicine_redordBox {
+    width: 100%;
+    height: 3.375rem;
+    background-color: #FFFFFF;
+    margin-top: 1.875rem;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.medicine_box {
+    width: 90%;
+    height: 1rem;
+    .record {
+        height: 1rem;
+        font-size: 1rem;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        float: left;
+    }
+    .arrowRight {
+        height: 1rem;
+        float: right;
+        width: 0.58rem;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.tilName {
+    width: 90%;
+    height: 2rem;
+    padding: 1rem 5% 0 5%;
+    background-color: #FFFFFF;
+    line-height: 2rem;
+    font-size: 1rem;
+}
+
+.ciircle_word {
+    height: 2rem;
+    //  background-color: chocolate;
+    font-size: 1rem;
+    float: left;
+    line-height: 2rem;
+}
+
+.circleBox {
+    width: 0.8rem;
+    height: 2rem;
+    //  background-color: cyan;
+    float: left;
+    padding-right: 0.5rem;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+}
+
+.circle {
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+.real-medicine {
+    width: 90%;
+    height: 4rem;
+    background-color: #FFFFFF;
+    padding: 0 5%;
+}
+
+.everyDay_medicine {
+    width: 100%;
+    height: 1rem;
+    //  background: greenyellow;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    color: rgb(138, 148, 166);
+    padding-top: 0.7rem;
+}
+
+.medicine_date {
+    @extend .everyDay_medicine;
+    margin-top: 0.3rem;
+    padding-top: 0.2rem;
+}
+
+.medicine_useTime {
+    color: rgb(138, 148, 166);
+}
+
+.amend {
+    color: rgb(25, 204, 192);
+}
+
+.bd {
+    margin-left: 5%;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    width: 90%;
+}

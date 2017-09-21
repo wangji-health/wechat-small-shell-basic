@@ -1,0 +1,228 @@
+html,
+body,
+header,
+div,
+input,
+button,
+a {
+  margin: 0;
+  padding: 0; }
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #f3f8fc; }
+
+html {
+  font-size: 16px; }
+
+.r-name {
+  width: 100%;
+  height: 4rem;
+  border-bottom: 1px solid #e4e4e4;
+  border-top: 1px solid #e4e4e4;
+  background-color: #FFFFFF; }
+
+.n-name {
+  float: left;
+  width: 20%;
+  height: 4rem;
+  border: none;
+  line-height: 4rem;
+  padding-left: 5%;
+  color: #b2b2b2;
+  font-size: 0.8rem; }
+
+input[type="date"]::-webkit-clear-button {
+  display: none; }
+
+.smtBox {
+  width: 100%;
+  padding-top: 2rem;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0; }
+
+.next {
+  width: 80%;
+  height: 3rem;
+  border-radius: 1.5rem;
+  background-color: #d4d9da;
+  margin: auto;
+  color: #FFFFFF;
+  line-height: 3rem; }
+
+.prompt {
+  margin: 1rem;
+  color: #9ca4af;
+  font-size: 0.8rem; }
+
+.menses {
+  -webkit-appearance: none;
+  float: left;
+  padding-right: 5%;
+  border: none;
+  text-align: right;
+  border-bottom: 1px solid #e4e4e4;
+  border-radius: 0;
+  height: 3.9rem;
+  background-color: #FFFFFF;
+  line-height: 3.9rem;
+  width: 45%;
+  height: 100%; }
+
+.layerDiy_box {
+  display: none; }
+
+.estimate, .estimate_time {
+  float: left;
+  width: 20%;
+  height: 100%;
+  border-bottom: 1px solid #e4e4e4; }
+  .estimate .estimate_box, .estimate_time .estimate_box {
+    width: 100%;
+    height: 50%;
+    text-align: center; }
+    .estimate .estimate_box .estimate_img, .estimate_time .estimate_box .estimate_img {
+      margin-top: 0.5rem;
+      width: 1.5rem;
+      height: 1.2rem; }
+  .estimate .estimate_word, .estimate_time .estimate_word {
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    line-height: 2rem;
+    color: #b2b2b2; }
+
+.estimate, .estimate_time {
+  float: left;
+  width: 20%;
+  height: 100%;
+  border-bottom: 1px solid #e4e4e4; }
+  .estimate .estimate_box, .estimate_time .estimate_box {
+    width: 100%;
+    height: 50%;
+    text-align: center; }
+    .estimate .estimate_box .estimate_img, .estimate_time .estimate_box .estimate_img {
+      margin-top: 0.5rem;
+      width: 1.5rem;
+      height: 1.2rem; }
+  .estimate .estimate_word, .estimate_time .estimate_word {
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    line-height: 2rem; }
+
+.estimate_time #birth_time {
+  -webkit-appearance: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  text-align: center; }
+
+.layerDiy_box {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100; }
+  .layerDiy_box .layerDiy {
+    width: 80%;
+    height: 23.5rem;
+    background-color: #FFFFFF;
+    position: relative;
+    left: 50%;
+    margin-left: -40%;
+    top: 50%;
+    margin-top: -11.75rem; }
+    .layerDiy_box .layerDiy .layerDiy_title {
+      width: 100%;
+      height: 5.3rem;
+      text-align: center;
+      line-height: 5.3rem;
+      border-bottom: 2px solid #f0f0f0; }
+      .layerDiy_box .layerDiy .layerDiy_title .last_calc {
+        font-size: 1.3rem !important; }
+    .layerDiy_box .layerDiy .willBirth {
+      width: 100%;
+      height: 3.3rem;
+      position: relative;
+      border-bottom: 2px solid #f0f0f0; }
+      .layerDiy_box .layerDiy .willBirth .willBirth_left {
+        width: 40%;
+        padding-left: 8%;
+        height: 100%;
+        float: left;
+        line-height: 3.3rem;
+        color: #64656f; }
+      .layerDiy_box .layerDiy .willBirth .willBirth_right {
+        -webkit-appearance: none;
+        width: 35%;
+        padding-left: 10%;
+        text-align: right;
+        height: 3.3rem;
+        border-radius: 0;
+        border: 0; }
+    .layerDiy_box .layerDiy .pro {
+      width: 100%;
+      height: 4.8rem;
+      border-bottom: 2px solid #f0f0f0; }
+      .layerDiy_box .layerDiy .pro .pro_word {
+        width: 80%;
+        color: #C2C2C2;
+        margin: auto;
+        padding-top: 1rem; }
+    .layerDiy_box .layerDiy .calc_date {
+      width: 100%;
+      height: 3.3rem;
+      position: relative;
+      border-bottom: 2px solid #f0f0f0; }
+      .layerDiy_box .layerDiy .calc_date .calc_date_left {
+        width: 40%;
+        float: left;
+        height: 100%;
+        padding-left: 8%;
+        text-align: left;
+        line-height: 3.3rem;
+        color: #64656f; }
+      .layerDiy_box .layerDiy .calc_date .calc_date_right {
+        width: 40%;
+        float: right;
+        padding-right: 8%;
+        height: 100%;
+        text-align: right;
+        line-height: 3.3rem;
+        color: #C2C2C2; }
+    .layerDiy_box .layerDiy .close {
+      position: absolute;
+      right: 1rem;
+      top: 1.5rem; }
+      .layerDiy_box .layerDiy .close .close_x {
+        width: 100%;
+        height: 100%; }
+    .layerDiy_box .layerDiy .sure_box {
+      width: 100%;
+      height: 6rem;
+      line-height: 6rem;
+      text-align: center; }
+    .layerDiy_box .layerDiy #sure {
+      width: 80%;
+      height: 3.3rem;
+      background-color: #52c8fd;
+      border: none;
+      color: #FFFFFF;
+      border-radius: 5px;
+      font-size: 1.2rem !important; }
+
+@media only screen and (max-width: 386px) {
+  html {
+    font-size: 12px !important; }
+
+  * {
+    font-size: 12px !important; } }
+
+/*# sourceMappingURL=pregnant_info.css.map */

@@ -1,0 +1,287 @@
+html,
+body,
+option,
+select {
+    margin: 0;
+    padding: 0;
+    background-color: #f1f6fa;
+}
+
+html {
+    font-size: 16px;
+}
+
+.bind_box {
+    width: 95%;
+    height: 2.2rem;
+    //  background-color: red;
+    line-height: 2.2rem;
+    text-align: left;
+    padding-left: 5%;
+    color: #97a9b9;
+    font-size: 0.8rem;
+    -webkit-user-select: none;
+}
+
+@mixin right {
+    display: block;
+    float: right;
+}
+
+@mixin chose {
+    float: right;
+    color: #99aaba;
+    
+    -webkit-user-select: none;
+}
+
+.hospital {
+    width: 90%;
+    height: 3rem;
+    padding: 0 5%;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #e2e9f1;
+    .h_Name {
+        float: left;
+        color: #4c6073;
+        -webkit-user-select: none;
+        margin-top: 0.85rem;
+    }
+    .plz_chose {
+        @include chose;
+        height: 2.15rem;
+//      background: red;
+        width: 75%;
+        padding-top:0.85rem ;
+        text-align: right;
+        font-size: 0.6rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .right {
+        @include right;
+        margin: 1.09rem 0 0 0.5rem;
+    }
+}
+
+.search_hospital {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #FFFFFF;
+}
+
+.search_box {
+    width: 100%;
+    height: 2.1rem;
+    padding-top: 0.4rem;
+    background: -webkit-linear-gradient(left, rgb(121, 143, 251), rgb(78, 220, 255));
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, rgb(121, 143, 251), rgb(78, 220, 255));
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, rgb(121, 143, 251), rgb(78, 220, 255));
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, rgb(121, 143, 251), rgb(78, 220, 255));
+    -webkit-user-select: none;
+    .search_key {
+        width: 90%;
+        height: 1.7rem;
+        //      background-color: honeydew;
+        margin: auto;
+        .search_left {
+            width: 80%;
+            height: 1.5rem;
+            background: #FFFFFF;
+            padding: 0.23rem 0 0 0.5rem;
+            float: left;
+            #search {
+                margin: 0.15rem 0.1rem 0 0;
+                float: left;
+            }
+            #ipt {
+                float: left;
+                width: 90%;
+                border: none;
+                padding: 0.1rem;
+            }
+        }
+        .search_right {
+            float: right;
+            width: 15%;
+            height: 100%;
+            //          background: greenyellow;
+            line-height: 1.7rem;
+            text-align: center;
+            color: #436781;
+            -webkit-user-select: none;
+        }
+    }
+}
+
+.search_hospital {
+    display: none;
+}
+
+.hospital_list_box {
+    width: 100%;
+    height: 100%;
+}
+
+.hospital_list {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #f4f4f4;
+}
+
+.list {
+    list-style: none;
+    height: 3rem;
+    width: 95%;
+    padding-left: 5%;
+    line-height: 3rem;
+    border-bottom: 1px solid #f4f4f4;
+    color: #1a1921;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-user-select: none;
+}
+
+@media only screen and (max-width: 384px) {
+    .list {
+        font-size: 12px;
+    }
+}
+
+.hospital_doctor {
+    @extend .hospital
+}
+
+.infect_chose {
+    margin-top: 0.85rem;
+    @include chose;
+    -webkit-user-select: none;
+}
+
+.birth_chose {
+    margin-top: 0.85rem;
+    @include chose;
+    -webkit-user-select: none;
+}
+
+.child_chose {
+    margin-top: 0.85rem;
+    @include chose;
+    -webkit-user-select: none;
+}
+
+#infect {
+    border: none;
+    color: #99aaba;
+    text-align: right;
+    -webkit-user-select: none;
+}
+
+#birth {
+    @extend #infect;
+    text-align: right;
+    -webkit-user-select: none;
+}
+
+#child {
+    @extend #infect;
+    text-align: right;
+    -webkit-user-select: none;
+}
+
+#chose_first {
+    color: #99aaba;
+    -webkit-user-select: none;
+}
+
+.doc_right {
+    @include right;
+    margin: 1.09rem 0 0 0.5rem;
+}
+
+.fake_box {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(216, 216, 216, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.out_box {
+    width: 100%;
+    height: 35%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.fake_select {
+    width: 100%;
+    height: 85%;
+    overflow: auto;
+}
+
+@mixin fakeSelect{
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #dedede;
+    -webkit-user-select: none;
+    height: 2rem;
+    line-height: 2rem;
+    background-color: #FFFFFF;
+}
+
+.infect_doc {
+    @include fakeSelect
+}
+
+.obstetrics_doc{
+    @include fakeSelect
+}
+.pediatrics_doc{
+    @include fakeSelect
+}
+.cancel_box {
+    width: 100%;
+    background-color: #e7e7e7;
+    height: 2rem;
+    line-height: 2rem;
+    top: 0;
+    left: 0;
+    .cancel {
+        font-size: 1rem;
+        margin-left: 0.5rem;
+        -webkit-user-select: none;
+    }
+}
+
+.bind_sure{
+    border: none;
+    background: #4990e2;
+    width: 85%;
+    height: 3rem;
+    position: fixed;
+    z-index: -1;
+    left: 7.5%;
+    bottom: 5%;
+    font-size: 1rem;
+    color: #FFFFFF;
+}

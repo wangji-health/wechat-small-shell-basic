@@ -1,0 +1,297 @@
+html,
+body,
+header,
+div,
+input,
+button,
+a {
+  margin: 0;
+  padding: 0; }
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #f3f8fc; }
+
+html {
+  font-size: 16px; }
+
+p {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+span {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.top {
+  width: 100%;
+  height: 1rem; }
+
+.birth_timeBox, .babyBox, .badBox {
+  width: 90%;
+  height: 3.5rem;
+  padding: 0 5%;
+  position: relative; }
+
+input {
+  background-color: transparent;
+  border-color: transparent;
+  -webkit-appearance: none; }
+
+::-webkit-input-placeholder {
+  font-size: 0.85rem; }
+
+.bd, .height, .weight, .sickNameBox, .sickNameBox2, .sickNameBox3 {
+  width: 100%;
+  height: 3.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #FFFFFF; }
+
+.birth, .birth_date, .birth_time, .babyNum, .badNum {
+  width: 33.3%;
+  height: 3.5rem;
+  float: left;
+  line-height: 3.5rem;
+  font-size: 1rem;
+  color: #3c4747; }
+
+.birth_date {
+  text-align: center;
+  color: #8791a3; }
+
+.birth_time {
+  text-align: right;
+  color: #8791a3; }
+
+#date {
+  position: absolute;
+  width: 30%;
+  height: 3.5rem;
+  left: 33%;
+  top: 0;
+  opacity: 0; }
+
+#time {
+  position: absolute;
+  width: 30%;
+  height: 3.5rem;
+  right: 5%;
+  top: 0;
+  opacity: 0; }
+
+.babyBox, .badBox {
+  background-color: #FFFFFF; }
+
+.babyNum, .badNum {
+  width: 25%;
+  color: #3c4747; }
+
+.babyNumBox, .badNumBox, .badNumBox2, .badNumBox3 {
+  width: 75%;
+  height: 3.5rem;
+  float: left; }
+
+.bb1, .bb2, .bad1, .bad2 {
+  width: 33.33%;
+  height: 3.5rem;
+  float: left; }
+
+.word {
+  float: left;
+  line-height: 3.5rem; }
+
+.check1, .check2, .ccheck2, .check3, .ccheck1 {
+  width: 1.5rem;
+  height: 3.5rem;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  float: left; }
+  .check1 .imgBox, .check2 .imgBox, .ccheck2 .imgBox, .check3 .imgBox, .ccheck1 .imgBox, .check1 .imgBox2, .check2 .imgBox2, .ccheck2 .imgBox2, .check3 .imgBox2, .ccheck1 .imgBox2, .check1 .imgBox3, .check2 .imgBox3, .ccheck2 .imgBox3, .check3 .imgBox3, .ccheck1 .imgBox3, .check1 .iimgBox, .check2 .iimgBox, .ccheck2 .iimgBox, .check3 .iimgBox, .ccheck1 .iimgBox, .check1 .iimgBox2, .check2 .iimgBox2, .ccheck2 .iimgBox2, .check3 .iimgBox2, .ccheck1 .iimgBox2 {
+    width: 1.2rem;
+    height: 1.2rem; }
+    .check1 .imgBox img, .check2 .imgBox img, .ccheck2 .imgBox img, .check3 .imgBox img, .ccheck1 .imgBox img, .check1 .imgBox2 img, .check2 .imgBox2 img, .ccheck2 .imgBox2 img, .check3 .imgBox2 img, .ccheck1 .imgBox2 img, .check1 .imgBox3 img, .check2 .imgBox3 img, .ccheck2 .imgBox3 img, .check3 .imgBox3 img, .ccheck1 .imgBox3 img, .check1 .iimgBox img, .check2 .iimgBox img, .ccheck2 .iimgBox img, .check3 .iimgBox img, .ccheck1 .iimgBox img, .check1 .iimgBox2 img, .check2 .iimgBox2 img, .ccheck2 .iimgBox2 img, .check3 .iimgBox2 img, .ccheck1 .iimgBox2 img {
+      display: block;
+      width: 100%;
+      height: 100%; }
+
+.imgBox2 img {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
+.imgBox3 img {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
+.baby_infoBox, .baby_infoBox2, .baby_infoBox3 {
+  width: 90%;
+  height: 2.5rem;
+  padding: 0 5%;
+  line-height: 2.5rem;
+  font-size: 1rem;
+  color: #8a94a6; }
+
+.height, .weight, .sickNameBox, .sickNameBox2, .sickNameBox3 {
+  position: relative; }
+
+.cm, .g, .no {
+  float: right;
+  height: 3.5rem;
+  line-height: 3.5rem; }
+
+#height, #weight, #sickName, #sickName2, #sickName3, #weight2, #weight3, #height2, #height3 {
+  width: 3rem;
+  float: right;
+  border: none;
+  border-radius: 0;
+  height: 1rem;
+  padding: 1.25rem 0;
+  text-align: right;
+  padding-right: 0.5rem; }
+
+#tall, #wg, #NM {
+  position: absolute;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  top: 0;
+  left: 5%;
+  font-size: 1rem;
+  color: #3c4747; }
+
+label {
+  width: 90%;
+  padding: 0 5%;
+  height: 3.5rem;
+  display: inline-block; }
+
+.badNum {
+  width: 30%;
+  min-width: 7rem; }
+
+.badNumBox, .badNumBox2, .badNumBox3 {
+  float: right;
+  width: 30%; }
+
+.bad1 {
+  width: 50%; }
+
+.bad2 {
+  width: 50%; }
+
+.sickNameBox, .sickNameBox2, .sickNameBox3 {
+  display: none;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: none; }
+
+#sickName, #sickName2, #sickName3 {
+  width: 75%;
+  font-size: 1rem; }
+
+.point {
+  margin-top: 2.5rem;
+  width: 100%;
+  height: 0.9rem;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center; }
+  .point .star {
+    width: 0.9rem;
+    height: 0.9rem;
+    float: left; }
+    .point .star img {
+      width: 100%;
+      height: 100%;
+      display: block; }
+  .point .p_w {
+    float: left;
+    font-size: 0.9rem;
+    text-decoration: none;
+    height: 0.9rem;
+    line-height: 0.9rem; }
+
+#saveBox {
+  position: fixed;
+  background-color: #f3f8fc;
+  width: 100%;
+  height: 6rem;
+  bottom: 0;
+  left: 0; }
+  #saveBox .save {
+    width: 90%;
+    height: 3rem;
+    text-align: center;
+    line-height: 3rem;
+    background-color: #d4d9da;
+    color: #FFFFFF;
+    position: fixed;
+    left: 5%;
+    bottom: 1.5rem;
+    font-size: 1rem;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+
+.sickNameBox2 {
+  border-bottom: none; }
+
+.sickNameBox3 {
+  border-bottom: none; }
+
+#baby2 {
+  display: none; }
+
+#baby3 {
+  display: none;
+  margin-bottom: 7rem; }
+
+@media only screen and (max-width: 360px) {
+  html {
+    font-size: 12px !important; }
+
+  .point {
+    height: 1rem; }
+    .point .star {
+      width: 1rem;
+      height: 1rem; }
+    .point .p_w {
+      font-size: 1rem;
+      text-decoration: none;
+      height: 1rem;
+      line-height: 1rem; } }
+@media only screen and (min-width: 360px) and (max-width: 386px) {
+  html {
+    font-size: 14px !important; }
+
+  .point {
+    height: 1rem; }
+    .point .star {
+      width: 1rem;
+      height: 1rem; }
+    .point .p_w {
+      font-size: 1rem;
+      text-decoration: none;
+      height: 1rem;
+      line-height: 1rem; } }
+
+/*# sourceMappingURL=giveBirth_info.css.map */

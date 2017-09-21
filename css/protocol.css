@@ -1,0 +1,41 @@
+html{
+	width:100%;
+	height: 100%;
+	
+}
+a{
+    text-decoration: none;
+}
+.content {
+	width: 100%;
+	height: 100%;
+	/*position: fixed;*/
+	margin-top: 15px;
+	overflow-y: scroll;
+}
+
+.wordBox {
+	width: 95%;
+	margin: auto;
+	height: 100%;
+	background-color: #FFFFFF;
+}
+.hf-ol-1 {
+  float: left;
+  width: 3rem;
+  height: 100%;
+  font-size: 0.875rem;
+}
+.hf-ol-2 {
+  float: left;
+  width: 3rem;
+  height: 100%;
+  font-size: 0.875rem;
+  float: right;
+  font-weight: 300;
+  text-align: left;
+}
+.back{
+	font-size: 1.5rem;
+	color: #FFFFFF;
+}

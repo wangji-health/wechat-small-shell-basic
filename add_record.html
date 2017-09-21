@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>添加抗病毒记录</title>
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="css/add_record.css" />
+		<script type="text/javascript" src="layui/layui.js"></script>
+	</head>
+	<body>
+		<div class="content">
+			<div class="choose_MBox">
+				<div class="m_box">
+					<span class="medicine">服用药物</span>
+					<span class="m_choose">请选择</span>
+				</div>
+			</div>
+
+			<div class="startLabel">
+				<span class="startDate">开始服用日期</span>
+				<div class="zzc"></div>
+				<input type="date" id="have" value=""/>
+			</div>
+			<input type="text" name="" id="startInput" placeholder="请选择" />
+
+			<div class="line"></div>
+			<div class="endLabel">
+				<span class="endDate">结束服用日期</span>
+				<div class="zzc"></div>
+				<input type="date" id="endhave" value=""/>
+			</div>
+			<input type="text" name="" id="endInput" placeholder="请选择"/>
+			
+			<div class="save">保存</div>
+		</div>
+
+		<!--------------------弹出层部分-------------------------->
+		<div class="medicine_alert">
+			<div class="medicine_contentBox">
+				<div class="medicineBd">
+					<div class="exitBox">
+						<img class="exit" src="img/exitBig.png" />
+					</div>
+					<p class="tit">选择所服用的药物</p>
+					<div class="medicineCBox">
+						<div class="tB child_li">
+							<div class="m_sq">
+								<img src="img/tB.png" />
+								<img class="choose" src="img/choose.png" />
+							</div>
+							<p class="des">替比夫定</p>
+						</div>
+						<div class="tN child_li">
+							<div class="m_sq">
+								<img src="img/tN.png" />
+								<img class="choose" src="img/choose.png" />
+							</div>
+							<p class="des">替诺福韦酯</p>
+						</div>
+						<div class="lM child_li">
+							<div class="m_sq">
+								<img src="img/lM.png" />
+								<img class="choose" src="img/choose.png" />
+							</div>
+							<p class="des">拉米夫定</p>
+						</div>
+						<div class="aD child_li">
+							<div class="m_sq">
+								<img src="img/aD.png" />
+								<img class="choose" src="img/choose.png" />
+							</div>
+							<p class="des">阿德福韦酯</p>
+						</div>
+						<div class="eT child_li">
+							<div class="m_sq">
+								<img src="img/eT.png" />
+								<img class="choose" src="img/choose.png" />
+							</div>
+							<p class="des">恩替卡韦</p>
+						</div>
+						<div class="gR child_li">
+							<div class="m_sq">
+								<img src="img/gR.png" />
+								<img class="choose" src="img/choose.png" />
+							</div>
+							<p class="des">干扰素</p>
+						</div>
+						<div class="cX child_li">
+							<div class="m_sq">
+								<img src="img/cX.png" />
+								<img class="choose" src="img/choose.png" />
+							</div>
+							<p class="des">长效干扰素</p>
+						</div>
+					</div>
+					<div class="confir">
+						<div class="sure">确定</div>
+						<div class="cancel">取消</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/add_record.js"></script>
+	</body>
+
+</html>

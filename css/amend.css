@@ -1,0 +1,382 @@
+html,
+body,
+header,
+div,
+input,
+button,
+a,
+span {
+  margin: 0;
+  padding: 0; }
+
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #8791a3; }
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #8791a3; }
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #8791a3; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #8791a3; }
+
+html {
+  font-size: 16px; }
+
+body {
+  background-color: #f3f8fc;
+  width: 100%;
+  height: 100%; }
+
+.choose_MBox {
+  width: 100%;
+  height: 3.375rem;
+  background-color: #FFFFFF;
+  margin: 1rem 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+input[type=date] {
+  outline: none;
+  width: 100px;
+  height: 100px;
+  background-color: #FFFFFF;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none; }
+
+input[type=text] {
+  -webkit-appearance: none;
+  outline: none;
+  width: 100px;
+  height: 100px;
+  text-align: right; }
+
+.line {
+  border-top: 1px solid #f0f0f0; }
+
+#startInput, #endInput {
+  width: 95%;
+  padding-right: 5%;
+  height: 3.375rem;
+  border: none;
+  position: relative;
+  display: block; }
+
+.startDate, .endDate {
+  position: absolute;
+  z-index: 100;
+  left: 5%;
+  height: 3.375rem;
+  line-height: 3.375rem;
+  font-size: 1rem;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.zzc {
+  position: absolute;
+  z-index: 50;
+  width: 200px;
+  height: 3.375rem;
+  background-color: #FFFFFF; }
+
+.m_box {
+  width: 90%;
+  height: 1rem; }
+  .m_box .medicine {
+    height: 1rem;
+    font-size: 1rem;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    float: left; }
+  .m_box .m_choose {
+    color: #8791a3;
+    float: right;
+    height: 1rem;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+
+.saveBox {
+  width: 90%;
+  height: 3rem;
+  line-height: 3rem;
+  color: #FFFFFF;
+  position: fixed;
+  left: 5%;
+  bottom: 1.5rem;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between; }
+
+.del {
+  width: 48.5%;
+  height: calc(100%-2px);
+  background-color: #FFFFFF;
+  text-align: center;
+  border: 1px solid #d4d9da;
+  color: #3c4747;
+  border-radius: 5px;
+  font-size: 1rem; }
+
+.save {
+  width: 48.5%;
+  height: calc(100%-2px);
+  background-color: #52c8fd;
+  text-align: center;
+  border: 1px solid #d4d9da;
+  border-radius: 5px;
+  font-size: 1rem; }
+
+#have, #endhave {
+  height: 3.375rem;
+  width: 100%;
+  border: none;
+  position: absolute;
+  z-index: 300;
+  opacity: 0; }
+
+.medicine_alert {
+  min-width: 320px;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1600;
+  top: 0;
+  right: 0;
+  background: rgba(41, 44, 52, 0.5);
+  display: none; }
+  .medicine_alert .medicine_contentBox {
+    background-color: #FFFFFF;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .medicine_alert .medicine_contentBox .medicineBd {
+      width: 90.4%;
+      height: 91.2%; }
+
+.exitBox {
+  width: 100%;
+  height: 1rem; }
+  .exitBox .exit {
+    float: right;
+    width: 1rem;
+    height: 1rem; }
+
+.tit {
+  text-align: center; }
+
+.medicineCBox {
+  margin-top: 1rem;
+  width: 100%;
+  min-height: 160px;
+  height: 65%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap; }
+
+.tB, .tN, .lM, .aD, .eT, .gR, .cX {
+  width: 25%;
+  height: 4.5rem; }
+
+.m_sq {
+  width: 56px;
+  height: 56px;
+  margin: auto;
+  position: relative; }
+  .m_sq img {
+    width: 100%;
+    height: 100%; }
+  .m_sq .choose {
+    width: 1.2rem;
+    height: 1.2rem;
+    position: absolute;
+    top: -0.2rem;
+    right: -0.2rem;
+    display: none; }
+
+.des {
+  text-align: center;
+  font-size: 0.9rem; }
+
+.confir {
+  width: 100%;
+  height: 18.5%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.sure, .cancel {
+  font-size: 1rem;
+  width: 48%;
+  height: 3rem;
+  background-color: #52c8fd;
+  text-align: center;
+  line-height: 3rem;
+  color: #FFFFFF; }
+
+.cancel {
+  width: calc(48%-2px);
+  height: 3rem;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(41, 44, 52, 0.5);
+  color: #535353; }
+
+.show {
+  display: block !important; }
+
+@media only screen and (max-width: 362px) {
+  html {
+    font-size: 14px; }
+
+  .tB, .tN, .lM, .aD, .eT, .gR, .cX {
+    height: 5rem; }
+
+  .des {
+    font-size: 0.8rem; }
+
+  .m_sq {
+    width: 50px;
+    height: 50px; } }
+.delBox {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(41, 44, 52, 0.5);
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  display: none; }
+
+.middle {
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.del_t {
+  width: 88%;
+  height: 12rem;
+  background-color: #FFFFFF;
+  border-radius: 5px; }
+
+.del_record {
+  padding: 3rem 9% 2rem;
+  text-align: center;
+  width: 82%;
+  font-size: 1.1rem;
+  border-radius: 5px; }
+
+.sure_b {
+  width: 90%;
+  height: 3rem;
+  margin: auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between; }
+
+.del_cancel {
+  width: 45%;
+  height: 3rem;
+  background: #52c8fd;
+  text-align: center;
+  line-height: 3rem;
+  color: #FFFFFF;
+  font-size: 1rem;
+  border-radius: 5px; }
+
+.del_del {
+  width: 45%;
+  height: calc(100%-4px);
+  text-align: center;
+  line-height: 2.8rem;
+  font-size: 1rem;
+  border: 2px solid #e4e7ef;
+  border-radius: 5px; }
+
+@media only screen and (max-width: 320px) {
+  .medicine_contentBox {
+    width: 274px;
+    height: 274px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -137px;
+    margin-top: -137px;
+    z-index: 10000; } }
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .medicine_contentBox {
+    width: 321px;
+    height: 310px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -160.5px;
+    margin-top: -155px;
+    z-index: 10000; } }
+@media only screen and (min-width: 376px) {
+  .medicine_contentBox {
+    width: 354px;
+    height: 330px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -177px;
+    margin-top: -165px;
+    z-index: 10000; } }
+
+/*# sourceMappingURL=amend.css.map */

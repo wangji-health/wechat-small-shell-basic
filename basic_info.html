@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>基本信息</title>
+		<link rel="stylesheet" type="text/css" href="/wechat-web/wechat/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="/wechat-web/wechat/css/basic_info.css" />
+		<script type="text/javascript" src="/wechat-web/wechat/layui/layui.js"></script>
+		<script type="text/javascript" src="/wechat-web/wechat/module_entrance.js"></script>
+		<script type="text/javascript" src="/wechat-web/wechat/js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="/wechat-web/wechat/js/add_info.js" ></script>
+	</head>
+
+	<body>
+		<div id="bigBox">
+			<div id="basicBGBox">
+				<p id="Htitle">基本信息</p>
+				<img id="basicImg" src="/wechat-web/wechat/img/person_backImg.png" />
+			</div>
+			<img id="photo" src="/wechat-web/wechat/img/person_photo.png" />
+		</div>
+		<form class="layui-form">
+			<div class="r-name mgtop">
+				<p class="n-name">真实姓名</p>
+				<input type="text" lay-ignore class="layui-input-inline real-name" name="" id="real-name" value="" placeholder="请填写" />
+			</div>
+			<div class="r-name mgtop">
+				<p class="n-name">出生日期</p>
+				<label>
+					<input type="text" lay-ignore class="layui-input-inline date" name="" id="date" value="" placeholder="请选择"/>
+				</label>
+			</div>
+			<div class="r-name mgtop">
+				<p class="n-name">民族</p>
+				<div class="nation">
+					<input type="radio" lay-filter="nation" id="hz" class="nation" name="nation" title="汉族" lay-skin="primary" value="汉族">
+					<input type="radio" lay-filter="nation" id="oth" class="nation" name="nation" title="其他" lay-skin="primary" value="其他">
+				</div>
+			</div>
+			<div class="r-name mgtop">
+				<p class="n-name">身份证号</p>
+				<input type="text" name="real-name" class="id_Num" id="real-name" value="" placeholder="请填写（可不填）" />
+			</div>
+			<div class="r-name mgtop">
+				<p class="n-name">是否乙肝</p>
+				<div class="isH">
+					<input type="radio" lay-filter="isH" id="is_He" class="heP" name="isH" title="是" lay-skin="primary" value="1">
+					<input type="radio" lay-filter="isH" id="not_He" class="heP" name="isH" title="否" lay-skin="primary" value="0">
+				</div>
+			</div>
+			<div class="r-name mgtop">
+				<p class="n-name">怀孕状态</p>
+				<div class="isPregnant">
+					<input type="radio" class="layui-input-inline willB isPr" lay-filter="isPregnant" name="isPregnant" title="备孕" lay-skin="primary" value="0">
+					<input type="radio" class="layui-input-inline alreadyB isPr" lay-filter="isPregnant" name="isPregnant" title="已怀孕" lay-skin="primary" value="1">
+					<input type="radio" class="layui-input-inline overB isPr" lay-filter="isPregnant" name="isPregnant" title="已分娩" lay-skin="primary" value="2">
+				</div>
+			</div>
+			<div class="r-name mgtop last_menses">
+				<p class="n-name">末次月经时间</p>
+				<label>
+					<input type="text" lay-ignore class="layui-input-inline menses MMdate" name="" value="" placeholder="请选择"/>
+				</label>
+				<div class="estimate">
+					<div class="estimate_box">
+						<img class="estimate_img" src="/wechat-web/wechat/img/assessDate.png" />
+					</div>
+					<div class="estimate_word">
+						估算
+					</div>
+				</div>
+			</div>
+			<div class="r-name mgtop birth_time">
+				<p class="n-name">分娩时间</p>
+				<label>
+					<input type="text" lay-ignore class="layui-input-inline menses MMMdate" name="" value="" placeholder="请选择日期"/>
+				</label>
+				<div class="estimate_time">
+					<input type="text" name="" id="birth_time" placeholder="请选择时间" />
+				</div>
+			</div>
+		</form>
+		<div class="layerDiy_box">
+			<div class="layerDiy">
+				<div class="layerDiy_title">
+					<p class="last_calc">末次月经计算器</p>
+				</div>
+				<div class="close">
+					<img class="close_x" src="/wechat-web/wechat/img/exit.png" />
+				</div>
+				<div class="willBirth">
+					<p class="willBirth_left">预产期</p>
+					<input class="willBirth_right Mdate" type="" name="" id="" value="" placeholder="请选择" />
+				</div>
+				<div class="pro">
+					<p class="pro_word">忘记末次月经周期时，可通过填入预产期自动计算末次月经周期</p>
+				</div>
+				<div class="calc_date">
+					<p class="calc_date_left">末次月经日期</p>
+					<p class="calc_date_right">请填写预产期</p>
+				</div>
+				<div class="sure_box">
+					<button id="sure">确定</button>
+				</div>
+			</div>
+		</div>
+		<div class="smtBox">
+			<button class="layui-btn next" lay-submit>下一步</button>
+			<p class="prompt">*请确保您的信息填写正确，否则将对您的使用造成影响</p>
+		</div>
+		<script type="text/javascript" src="/wechat-web/wechat/js/basic_info.js"></script>
+		<script type="text/javascript" src="/wechat-web/wechat/js/jquery-2.1.0.js"></script>
+	</body>
+
+</html>

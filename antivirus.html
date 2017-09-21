@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta content="telephone=no" name="format-detection" />
+		<title>抗病毒</title>
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="css/antivirus.css" />
+		<script type="text/javascript" src="layui/layui.js"></script>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="banner">
+				<div class="wordBox">
+					<div class="word1"></div>
+					<div class="word2">抗病毒对母婴阻断的积极影响</div>
+					<div class="word1 hasB">点击查看</div>
+				</div>
+			</div>
+
+			<div class="tilNameBox">
+				<div class="tilName">
+					<div class="circleBox">
+						<img class="circle" src="img/circle.png" />
+					</div>
+					<p class="ciircle_word">抗病毒药物使用情况</p>
+				</div>
+				<!--<div class="real-medicine">
+					<div class="everyDay_medicine">
+						<div>药物名称：<span class="medicine_Name">替比夫定</span></div>
+						<div>每日剂量：<span class="medicine_dose">600mg</span></div>
+					</div>
+					<div class="medicine_date">
+						<div>用药时间：<span class="medicine_useTime">2017-09-11~2017-09-11</span></div>
+						<span class="amend">修改</span>
+					</div>
+				</div>-->
+				<div class="bd"></div>
+			</div>
+
+			<script type="text/html" class="tmp">
+				<div class="real-medicine">
+					<div class="everyDay_medicine">
+						<div>药物名称：<span class="medicine_Name">{{name}}</span></div>
+						<div class="hd">每日剂量：<span class="medicine_dose">{{dose}}</span></div>
+					</div>
+					<div class="medicine_date">
+						<div>用药时间：<span class="medicine_useTime">{{drug_Time}}</span></div>
+						<span class="amend">修改</span>
+					</div>
+				</div>
+				<div class="bd"></div>
+			</script>
+
+			<div class="medicine_redordBox">
+				<div class="medicine_box">
+					<span class="record">添加抗病毒药物使用记录</span>
+					<span class="arrowRight">
+						<img src="img/arrowRight.png"/>
+					</span>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/antivirus.js"></script>
+	</body>
+
+</html>

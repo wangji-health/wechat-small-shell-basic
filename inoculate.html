@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>免疫接种</title>
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="css/inoculate.css" />
+		<script type="text/javascript" src="layui/layui.js"></script>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="banner">
+				<div class="wordBox">
+					<div class="word1"></div>
+					<div class="word2">为什么免疫接种这么重要?</div>
+					<div class="word1 hasB">点击查看</div>
+				</div>
+			</div>
+			<div class="out">
+				<div class="number">
+					<div class="num1 num">
+						<span class="baby1 baby focus">宝宝1</span>
+					</div>
+					<div class="num2 num">
+						<span class="baby2 baby">宝宝2</span>
+					</div>
+					<div class="num3 num">
+						<span class="baby3 baby">宝宝3</span>
+					</div>
+				</div>
+			</div>
+
+			<!--<div class="isInocu">
+				
+			</div>-->
+
+			<div class="delBox">
+				<div class="middle">
+					<div class="del_t">
+						<div class="cha">
+							<img class="cancel" src="img/exitBig.png"/>
+						</div>
+						<p class="del_record">是否接种</p>
+						<div class="sure_b">
+							<div class="inYes">是
+								<input type="date" name="" id="" class="date1 dt" value="" />
+								<input type="date" name="" id="" class="date3 dt" value="" />
+								<input type="date" name="" id="" class="date5 dt" value="" />
+								<input type="date" name="" id="" class="date7 dt" value="" />
+								
+								<input type="date" name="" id="" class="date1-1 dt1" value="" />
+								<input type="date" name="" id="" class="date3-1 dt1" value="" />
+								<input type="date" name="" id="" class="date5-1 dt1" value="" />
+								<input type="date" name="" id="" class="date7-1 dt1" value="" />
+								
+								<input type="date" name="" id="" class="date1-2 dt2" value="" />
+								<input type="date" name="" id="" class="date3-2 dt2" value="" />
+								<input type="date" name="" id="" class="date5-2 dt2" value="" />
+								<input type="date" name="" id="" class="date7-2 dt2" value="" />
+							</div>
+							<div class="inNo">
+								<div  class="inNo1 noo"></div>
+								<div  class="inNo3 noo"></div>
+								<div  class="inNo5 noo"></div>
+								<div  class="inNo7 noo"></div>
+								
+								<div  class="inNo1-1 noo1"></div>
+								<div  class="inNo3-1 noo1"></div>
+								<div  class="inNo5-1 noo1"></div>
+								<div  class="inNo7-1 noo1"></div>
+								
+								<div  class="inNo1-2 noo2"></div>
+								<div  class="inNo3-2 noo2"></div>
+								<div  class="inNo5-2 noo2"></div>
+								<div  class="inNo7-2 noo2"></div>
+								否
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!----------------------------宝宝1------------------------->
+			<div class="diyi bigC">
+				<div class="first_z">
+					<span class="first_word">第一针</span>
+					<span class="first_img"><img src="img/edit.png"/></span>
+				</div>
+				<div class="hepatitisLabel label">
+					<span class="hepatitisStartDate">乙肝疫苗接种日期</span>
+					<div class="zzc1"></div>
+					<!--<input type="date" id="hepatitisD" value="" />-->
+					<input type="text" name="" id="hepatitisT" placeholder="请选择" />
+				</div>
+
+				<div class="line"></div>
+				<div class="immunoglobulinLabel label">
+					<span class="immunoglobulinDate">免疫球蛋白接种日期</span>
+					<div class="zzc2"></div>
+					<!--<input type="date" id="immunoglobulinD" value="" />-->
+					<input type="text" name="" id="immunoglobulinT" placeholder="请选择" />
+				</div>
+
+				<div class="second_z">
+					<span class="second_word">第二针</span>
+					<span class="second_img"><img src="img/edit.png"/></span>
+				</div>
+				<div class="hepatitisLabel2 label">
+					<span class="hepatitisStartDate">乙肝疫苗接种日期</span>
+					<div class="zzc3"></div>
+					<!--<input type="date" id="hepatitisDS" value="" />-->
+					<input type="text" name="" id="hepatitisTS" placeholder="请选择" />
+				</div>
+
+				<div class="third_z">
+					<span class="third_word">第三针</span>
+					<span class="third_img"><img src="img/edit.png"/></span>
+				</div>
+				<div class="hepatitisLabel3 label">
+					<span class="hepatitisStartDate">乙肝疫苗接种日期</span>
+					<div class="zzc4"></div>
+					<!--<input type="date" id="hepatitisDT" value="" />-->
+					<input type="text" name="" id="hepatitisTT" placeholder="请选择" />
+				</div>
+			</div>
+
+			<!----------------------------宝宝2------------------------->
+			<div class="dier bigC">
+				<div class="first_z">
+					<span class="first_word">第一针</span>
+					<span class="first_img2"><img src="img/edit.png"/></span>
+				</div>
+				<div class="hepatitisLabel2-1 label2">
+					<span class="hepatitisStartDate">乙肝疫苗接种日期</span>
+					<div class="zzc1"></div>
+					<!--<input type="date" id="hepatitisD" value="" />-->
+					<input type="text" name="" id="hepatitisT2" placeholder="请选择" />
+				</div>
+
+				<div class="line"></div>
+				<div class="immunoglobulinLabel2 label2">
+					<span class="immunoglobulinDate">免疫球蛋白接种日期</span>
+					<div class="zzc2"></div>
+					<!--<input type="date" id="immunoglobulinD" value="" />-->
+					<input type="text" name="" id="immunoglobulinT2" placeholder="请选择" />
+				</div>
+
+				<div class="second_z">
+					<span class="second_word">第二针</span>
+					<span class="second_img2"><img src="img/edit.png"/></span>
+				</div>
+				<div class="hepatitisLabel2-2 label2">
+					<span class="hepatitisStartDate">乙肝疫苗接种日期</span>
+					<div class="zzc3"></div>
+					<!--<input type="date" id="hepatitisDS" value="" />-->
+					<input type="text" name="" id="hepatitisTS2" placeholder="请选择" />
+				</div>
+
+				<div class="third_z">
+					<span class="third_word">第三针</span>
+					<span class="third_img2"><img src="img/edit.png"/></span>
+				</div>
+				<div class="hepatitisLabel2-3 label2">
+					<span class="hepatitisStartDate">乙肝疫苗接种日期</span>
+					<div class="zzc4"></div>
+					<!--<input type="date" id="hepatitisDT" value="" />-->
+					<input type="text" name="" id="hepatitisTT2" placeholder="请选择" />
+				</div>
+			</div>
+
+			<!----------------------------宝宝3------------------------->
+			<div class="disan bigC">
+				<div class="first_z">
+					<span class="first_word">第一针</span>
+					<span class="first_img3"><img src="img/edit.png"/></span>
+				</div>
+				<div class="hepatitisLabel3-1 label3">
+					<span class="hepatitisStartDate">乙肝疫苗接种日期</span>
+					<div class="zzc1"></div>
+					<!--<input type="date" id="hepatitisD" value="" />-->
+					<input type="text" name="" id="hepatitisT3" placeholder="请选择" />
+				</div>
+
+				<div class="line"></div>
+				<div class="immunoglobulinLabel3 label3">
+					<span class="immunoglobulinDate">免疫球蛋白接种日期</span>
+					<div class="zzc2"></div>
+					<!--<input type="date" id="immunoglobulinD" value="" />-->
+					<input type="text" name="" id="immunoglobulinT3" placeholder="请选择" />
+				</div>
+
+				<div class="second_z">
+					<span class="second_word">第二针</span>
+					<span class="second_img3"><img src="img/edit.png"/></span>
+				</div>
+				<div class="hepatitisLabel3-2 label3">
+					<span class="hepatitisStartDate">乙肝疫苗接种日期</span>
+					<div class="zzc3"></div>
+					<!--<input type="date" id="hepatitisDS" value="" />-->
+					<input type="text" name="" id="hepatitisTS3" placeholder="请选择" />
+				</div>
+
+				<div class="third_z">
+					<span class="third_word">第三针</span>
+					<span class="third_img3"><img src="img/edit.png"/></span>
+				</div>
+				<div class="hepatitisLabel3-3 label3">
+					<span class="hepatitisStartDate">乙肝疫苗接种日期</span>
+					<div class="zzc4"></div>
+					<!--<input type="date" id="hepatitisDT" value="" />-->
+					<input type="text" name="" id="hepatitisTT3" placeholder="请选择" />
+				</div>
+			</div>
+			<div class="save">保存</div>
+		</div>
+
+		<script type="text/javascript" src="js/inoculate.js"></script>
+	</body>
+
+</html>

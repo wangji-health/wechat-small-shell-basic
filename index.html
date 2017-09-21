@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>登录</title>
+		<link rel="stylesheet" type="text/css" href="/wechat-web/wechat/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="/wechat-web/wechat/css/index.css" />
+		<script type="text/javascript" src="/wechat-web/wechat/layui/layui.js"></script>
+		<script type="text/javascript" src="/wechat-web/wechat/js/md5.js" ></script>
+		<script type="text/javascript" src="/wechat-web/wechat/module_entrance.js"></script>
+	</head>
+
+	<body>
+		<!--<header>
+			<span class="hf-ol-1"></span><span class="hf-ol-2">注册</span>
+		</header>-->
+		<div class="content">
+			<form class="layui-form" action="">
+				<input type="tel" lay-ignore lay-verify="phone|required" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" oninput="if(value.length>11)value=value.slice(0,11)" placeholder="手机号" autocomplete="off" class="layui-input-inline noBorder ol-phone">
+				<div class="bd-bottom"></div>
+				<div style="width: 100%;background-color: #ffffff;height: 3rem;">
+					<input type="password" lay-verify="required" placeholder="密码" autocomplete="off" id="ol_ps" class="layui-input-inline noBorder ol-ps">
+					<span class="ol-light"><img id="dark" src="/wechat-web/wechat/img/dark.png"/></span>
+				</div>
+			</form>
+			<button class="layui-btn" id="ol-submit">确&nbsp;定</button>
+			<div class="fgt"><span class="left">忘记密码?</span><span class="right">注册用户</span></div>
+			
+		</div>
+		<script type="text/javascript" src="/wechat-web/wechat/js/index.js" ></script>
+		<script type="text/javascript" src="/wechat-web/wechat/js/getOpenid.js" ></script>
+	</body>
+
+</html>
+<!--http://192.168.8.140:9997/wechat-web/wechat/getPatientBindHospitalWechat?170719031825469220
+http://192.168.8.140:9997/wechat-web/wechat/getPatientBindHospitalWechat?patient_user_id=170719031825469203-->
