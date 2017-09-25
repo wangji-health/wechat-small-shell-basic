@@ -1,3 +1,8 @@
+import '../layui/css/layui.css';
+import '../css/register.scss';
+import md5 from '../js/md5.js';
+import {context, htmlPath,Main} from './core/constants';
+
 layui.use(['jquery', 'form'], function() {
 	var $ = layui.jquery,
 		layer = layui.layer,
@@ -6,24 +11,17 @@ layui.use(['jquery', 'form'], function() {
 	//	layer.msg('hello');
 	$().ready(function() {
 
-		var Main = {
-			url: "http://localhost:8080",
-			urll: function(data) {
-				return this.url + data
-			}
-		}
-
 		//是否显示密码
 
 		$('.cRes-light').on('click', function() {
 			var input = document.getElementById("cRes-ps");
 			if(input.type == 'password') {
 				input.type = 'Text'
-				$('#dark').attr("src", "/wechat-web/wechat/img/light.png")
+				$('#dark').attr("src", require('../img/light.png'))
 
 			} else if(input.type = 'Text') {
 				input.type = 'password'
-				$('#dark').attr("src", "/wechat-web/wechat/img/dark.png")
+				$('#dark').attr("src", require('../img/dark.png'))
 			}
 		})
 
@@ -53,7 +51,7 @@ layui.use(['jquery', 'form'], function() {
 		function sendSecurityCode() {
 			var phoneNum = $("#res-phoneNum").val();
 			console.log(phoneNum);
-			var Url = Main.urll("/wechat-web/wechat/senMessageYunPian/") + phoneNum;
+			var Url = Main.urll(`${context}/wechat/senMessageYunPian/`) + phoneNum;
 			console.log(Url);
 			$.ajax({
 				type: "get",
@@ -144,7 +142,7 @@ layui.use(['jquery', 'form'], function() {
 			var psMd5_2 = md5($('.cRes-ps').val()).toLocaleUpperCase()
 //						console.log(psMd5_1)
 //						console .log(psMd5_2)
-			var res_url = Main.urll("/wechat-web/wechat/regeister")
+			var res_url = Main.urll(`${context}/wechat/regeister`)
 			console.log(res_url)
 			if(phoneN() && vfcode() && checkPs() && confirm()) {
 				layer.msg('成功')
@@ -185,7 +183,7 @@ layui.use(['jquery', 'form'], function() {
 								value: data.data.id
 							})
 							
-							location.href = "http://localhost:8080/wechat-web/wechat/basic_info.html"
+							location.href = `${context}/wechat/${htmlPath}/basic_info.html`
 						
 							return true;
 						} else {

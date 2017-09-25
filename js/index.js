@@ -1,10 +1,22 @@
-import '../css/index.scss'
+import '../layui/css/layui.css';
+import '../css/index.scss';
+import md5 from '../js/md5.js';
+import '../js/getOpenid.js';
+import {context, htmlPath,Main} from './core/constants';
 
 layui.use(['jquery', 'form'], function () {
   var $ = layui.jquery,
     layer = layui.layer,
     form = layui.form()
   $().ready(function () {
+
+    $('.right').on('click',function () {
+      location.href = `${context}/wechat/${htmlPath}/register.html`
+    });
+
+    $(".left").on("click", function() {
+      location.href = `${context}/wechat/${htmlPath}/forgetPS.html`
+    })
 
     //		var url = location.href
 
@@ -37,13 +49,6 @@ layui.use(['jquery', 'form'], function () {
 
       userId = user_Id
 
-    var Main = {
-      url: 'http://localhost:8080',
-      urll: function (data) {
-        return this.url + data
-      }
-    }
-
     //判断手机号码格式
     function phoneN() {
       var phone = $('.ol-phone').val()
@@ -61,11 +66,11 @@ layui.use(['jquery', 'form'], function () {
       var input = document.getElementById('ol_ps')
       if (input.type == 'password') {
         input.type = 'Text'
-        $('#dark').attr('src', '/wechat-web/wechat/img/light.png')
+        $('#dark').attr('src', require('../img/light.png'))
 
       } else if (input.type = 'Text') {
         input.type = 'password'
-        $('#dark').attr('src', '/wechat-web/wechat/img/dark.png')
+        $('#dark').attr('src', require('../img/dark.png'))
       }
     })
 
@@ -73,7 +78,7 @@ layui.use(['jquery', 'form'], function () {
     $('#ol-submit').on('click', function () {
       var password = md5($('.ol-ps').val()).toLocaleUpperCase()
       console.log(password)
-      var url = Main.urll('/wechat-web/wechat/login/') + $('.ol-phone').val() + '/' + password + '/' + 1 + '?openid=' + layui.data('openid').openid
+      var url = Main.urll(`${context}/wechat/login/`) + $('.ol-phone').val() + '/' + password + '/' + 1 + '?openid=' + layui.data('openid').openid
       console.log(url)
       if (phoneN() === true) {
         $.ajax({
@@ -93,7 +98,7 @@ layui.use(['jquery', 'form'], function () {
                 value: data.data.id
               })
 
-              var basic_url = Main.urll('/wechat-web/wechat/getPatientInfo/') + layui.data('userData').user2
+              var basic_url = Main.urll(`${context}/wechat/getPatientInfo/`) + layui.data('userData').user2
 
               console.log(basic_url)
 
@@ -119,7 +124,7 @@ layui.use(['jquery', 'form'], function () {
 
                   if (user_info == null) {
 
-                    location.href = '/wechat-web/wechat/basic_info.html'
+                    location.href = `${context}/wechat/${htmlPath}/basic_info.html`
 
                   }
 
@@ -129,11 +134,12 @@ layui.use(['jquery', 'form'], function () {
 
                   if (!user_info.full_Name || !user_info.birth_Date || !user_info.nation || !user_info.is_Hepatitis || !user_info.pregnant_Status) {
 
-                    location.href = '/wechat-web/wechat/basic_info.html'
+                    location.href = `${context}/wechat/${htmlPath}/basic_info.html`
 
                   }
 
-                  var isTurnBingUrl = 'http://localhost:8080/wechat-web/wechat/trunBindDoctorLink?patient_user_id=' + user_Id + '&doctor_phone=' + doctor_phone
+                  // var isTurnBingUrl = 'http://localhost:8080/wechat-web/wechat/trunBindDoctorLink?patient_user_id=' + user_Id + '&doctor_phone=' + doctor_phone
+                  var isisTurnBingUrl = Main.urll(`${context}/wechat/trunBindDoctorLink?patient_user_id=`)+user_Id+'&doctor_phone='+doctor_phone
                   console.log(isTurnBingUrl)
                   $.ajax({
                     type: 'get',
@@ -144,9 +150,9 @@ layui.use(['jquery', 'form'], function () {
                     success: function (data) {
                       console.log(data)
                       if (data.data == true) {
-                        location.href = '/wechat-web/wechat/bind_doctor.html'
+                        location.href = `${context}/wechat/${htmlPath}/bind_doctor.html`
                       } else if (data.data == false) {
-                        location.href = '/wechat-web/wechat/post.html'
+                        location.href = `${context}/wechat/${htmlPath}/post.html`
                       }
                     },
                     error: function () {

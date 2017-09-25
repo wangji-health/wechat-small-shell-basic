@@ -14,11 +14,22 @@ module.exports = {
   entry: {
     'index': './js/index.js',
     'post': './js/post.js',
+    'add_record': "./js/add_record.js",
+    'amend_record':"./js/amend_record.js",
+    'antivirus':'./js/antivirus.js',
+    'basic_info':'./js/basic_info.js',
+    'bind_doctor':'./js/bind_doctor.js',
+    'resetPS':'./js/resetPS.js',
+    'giveBirth_info':'./js/giveBirth_info.js',
+    'inoculate':'./js/inoculate.js',
+    'pregnant_info':'./js/pregnant_info.js',
+    'register':'./js/register.js',
+    'supplementary_info':'./js/supplementary_info.js',
   },
   output: {
     path: __dirname + '/build/',
     filename: '[name]' + '.min.js',
-    publicPath: `${context}/wechat/prod`,
+    publicPath: `${context}/wechat/prod/`,
   },
   resolve: {
     extensions: ['.js']
@@ -34,7 +45,11 @@ module.exports = {
       {test: /\.less$/, loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: ['css-loader', 'less-loader']})},
       {test: /\.scss$/, loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: ['css-loader', 'sass-loader']})},
       {test: /\.(jpg|png|svg)$/, loader: 'url-loader?limit=8192'},
-      {test: /\.(eot|woff|woff2|ttf)([\?]?.*)$/, loader: 'file-loader'}
+      {test: /\.(eot|woff|woff2|ttf)([\?]?.*)$/, loader: 'file-loader'},
+      {
+        test:/\.css$/,
+        loader: "style-loader!css-loader"
+      }
     ]
   },
   plugins: [

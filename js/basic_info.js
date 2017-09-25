@@ -1,11 +1,13 @@
+import '../layui/css/layui.css';
+import '../css/basic_info.scss';
+import '../js/add_info.js';
+import {context, htmlPath,Main} from './core/constants';
+
 layui.use(['jquery', 'form'], function() {
 
 	var $ = layui.jquery,
 		layer = layui.layer,
-		form = layui.form(),
-		ip = "localhost:8080";
-
-	
+		form = layui.form();
 
 	$().ready(function() {
 		
@@ -30,13 +32,6 @@ layui.use(['jquery', 'form'], function() {
 		console.log(user_Id);
 
 		console.log(doctor_Phone)
-
-		var Main = {
-			url: "http://" + ip,
-			urll: function(data) {
-				return this.url + data
-			}
-		}
 
 		//民族
 		var nation = null;

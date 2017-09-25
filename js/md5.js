@@ -20,8 +20,6 @@
 /*jslint bitwise: true */
 /*global unescape, define */
 
-(function ($) {
-    'use strict';
 
     /*
     * Add integers, wrapping at 2^32. This uses 16-bit operations internally
@@ -251,7 +249,7 @@
         return rstr2hex(raw_hmac_md5(k, d));
     }
 
-    function md5(string, key, raw) {
+     export default function md5(string, key, raw) {
         if (!key) {
             if (!raw) {
                 return hex_md5(string);
@@ -263,12 +261,3 @@
         }
         return raw_hmac_md5(key, string);
     }
-
-    if (typeof define === 'function' && define.amd) {
-        define(function () {
-            return md5;
-        });
-    } else {
-        $.md5 = md5;
-    }
-}(this));
