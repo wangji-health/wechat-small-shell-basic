@@ -1,20 +1,19 @@
+import '../layui/css/layui.css';
+import '../css/inoculate.scss';
+import {context, htmlPath,Main} from './core/constants';
+
 layui.use(['jquery', 'laydate'], function() {
 	var $ = layui.jquery,
 		layer = layui.layer
 	laydate = layui.laydate;
 
-	var Main = {
-		url: "http://localhost:8080",
-		urll: function(data) {
-			return this.url + data
-		}
-	}
-
 	var bannerWidth = $('.banner').css('width');
 	console.log(bannerWidth);
 	$('.banner').height(parseInt(bannerWidth) / 1.39);
 	console.log(parseInt(bannerWidth) / 1.39);
-
+$('.hasB').on('click',function () {
+	location.href = 'https://mp.weixin.qq.com/s/XTjZBJgFsTYtwLSYCYYS7g';
+})
 	//监听开始服用日期
 	$('#hepatitisD').on('change', function() {
 		$('#hepatitisT').val($('#hepatitisD').val())
@@ -38,6 +37,8 @@ layui.use(['jquery', 'laydate'], function() {
 	//获取user_id
 	var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
 
+		// var url = location.href,
+
 		userId_startIndex = url.indexOf('user_id=') + 8,
 
 		user_Id = url.slice(userId_startIndex);
@@ -55,7 +56,7 @@ layui.use(['jquery', 'laydate'], function() {
 		success: function(data) {
 			console.log(data);
 
-			baby_number = data.data;
+			var baby_number = data.data;
 
 			sessionStorage.babyNum = baby_number;
 
@@ -305,7 +306,7 @@ layui.use(['jquery', 'laydate'], function() {
 	$('.save').on('click', function() {
 
 		if(sessionStorage.babyNum == 1) {
-			dataBaby = [{
+			var dataBaby = [{
 				"baby_No": 1,
 				"first_HBIG_Day_Can_Be_Edited": 1,
 				"first_HBV_Day_Can_Be_Edited": 1,
@@ -391,8 +392,8 @@ layui.use(['jquery', 'laydate'], function() {
 				console.log(data)
 				
 				if(data.status==0){
-					location.href= 'post.html'
-				}
+					location.href= `${context}/wechat/forwardPage/post?user_id=`+user_Id
+        }
 			},
 			error: function() {
 

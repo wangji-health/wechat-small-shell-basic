@@ -183,7 +183,7 @@ layui.use(['jquery', 'form'], function() {
 								value: data.data.id
 							})
 							
-							location.href = `${context}/wechat/${htmlPath}/basic_info.html`
+							location.href = `${context}/wechat/forwardPage/basic_info`
 						
 							return true;
 						} else {

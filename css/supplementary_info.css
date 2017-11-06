@@ -212,7 +212,7 @@ label {
 
 .del_del {
   width: 45%;
-  height: calc(100%-4px);
+  height: calc(100% - 4px);
   text-align: center;
   line-height: 2.8rem;
   font-size: 1rem;

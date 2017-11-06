@@ -23,7 +23,6 @@ body {
     height: 100%;
     font-size: 0.875rem;
 }
-
 //header {
 //  width: 100%;
 //  height: 2.8rem;
@@ -71,7 +70,8 @@ body {
     border: none;
     height: 3rem;
     padding-left: 0.5rem;
-    width: 100%;
+    width: calc(100% - 0.5rem);
+    //background-color: red;
 }
 
 .bd-bottom {
@@ -81,6 +81,7 @@ body {
 .ol-ps {
     float: left;
     width: 82%;
+    //background-color: red;
 }
 
 .ol-light {
@@ -90,6 +91,7 @@ body {
     background-color: #FFFFFF;
     text-align: center;
     line-height: 3rem;
+    //background-color: red;
 }
 
 .fgt {

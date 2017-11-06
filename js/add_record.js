@@ -1,22 +1,21 @@
+import '../layui/css/layui.css';
+import '../css/add_record.scss';
+import {context,htmlPath,Main} from './core/constants';
+
 layui.use('jquery', function() {
 	var $ = layui.jquery,
 		layer = layui.layer;
 
 	//获取user_id
-	var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
+
+	// var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
+  var url = location.href,
 
 		userId_startIndex = url.indexOf('user_id=') + 8,
 
 		user_Id = url.slice(userId_startIndex);
 
 	console.log(user_Id);
-
-	var Main = {
-		url: "http://localhost:8080",
-		urll: function(data) {
-			return this.url + data
-		}
-	}
 
 	//控制确定和取消按钮高度一致
 	var sureH = $('.sure').height();
@@ -127,7 +126,8 @@ layui.use('jquery', function() {
 
 	function pst() {
 
-		var medicine_url = Main.urll('/wechat-web/wechat/addMyDrugUseInfoExtend')
+		var medicine_url = Main.urll(`${context}/wechat/addMyDrugUseInfoExtend`);
+		console.log(medicine_url);
 
 		var re_data = {
 			"dose": "",
@@ -141,8 +141,8 @@ layui.use('jquery', function() {
 			"way": ""
 		};
 		
-		real_data = JSON.stringify(re_data)
-		
+		var real_data = JSON.stringify(re_data);
+		console.log(re_data);
 		$.ajax({
 			type: "post",
 			url: medicine_url,
@@ -153,11 +153,12 @@ layui.use('jquery', function() {
 			success: function(data) {
 				console.log(data);
 				if(data.status ==0){
-					location.href = 'antivirus.html'
+					location.href = `${context}/wechat/forwardPage/antivirus?user_id=` + user_Id;
 				}
 			},
 			error: function() {
-				console.log(data)
+				// layer.msg('网络错误');
+				console.log(1)
 			}
 		});
 	}

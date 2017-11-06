@@ -1,23 +1,20 @@
+import '../layui/css/layui.css';
+import '../css/supplementary_info.scss';
+import {context, htmlPath,Main} from './core/constants';
 layui.use(['jquery', 'form'], function() {
 	var $ = layui.jquery,
 		layer = layui.layer;
 
 	$().ready(function() {
 		//获取user_id
-		var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
+		// var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
+			var url = location.href,
 
 			userId_startIndex = url.indexOf('user_id=') + 8,
 
 			user_Id = url.slice(userId_startIndex);
 
 		console.log(user_Id);
-
-		var Main = {
-			url: "http://localhost:8080",
-			urll: function(data) {
-				return this.url + data
-			}
-		}
 
 		//渲染宝宝个数
 		$.ajax({
@@ -98,7 +95,7 @@ layui.use(['jquery', 'form'], function() {
 
 			$.ajax({
 				type: "post",
-				url: Main.urll('/wechat-web/wechat/addMyBabyServenMonthsInfoExtend'),
+				url: Main.urll(`${context}/wechat/addMyBabyServenMonthsInfoExtend`),
 				async: true,
 				dataType: 'json',
 				data: rel_data,
@@ -106,7 +103,7 @@ layui.use(['jquery', 'form'], function() {
 				success: function(data) {
 					console.log(data);
 					if(data.status==0){
-						location.href = 'post.html';
+						location.href = `${context}/wechat/forwardPage/post?user_id=`+user_Id;
 					}
 				},
 				error: function() {

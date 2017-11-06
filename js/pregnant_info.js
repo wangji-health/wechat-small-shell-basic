@@ -1,3 +1,6 @@
+import '../layui/css/layui.css';
+import '../css/pregnant_info.scss';
+import {context, htmlPath,Main} from './core/constants';
 layui.use(['jquery', 'form'], function() {
 
 	var $ = layui.jquery,
@@ -7,20 +10,15 @@ layui.use(['jquery', 'form'], function() {
 	$().ready(function() {
 
 		//获取user_id
-		var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
+		// var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
+
+			var url = location.href,
 
 			userId_startIndex = url.indexOf('user_id=') + 8,
 
 			user_Id = url.slice(userId_startIndex);
 
 		console.log(user_Id);
-
-		var Main = {
-			url: "http://localhost:8080",
-			urll: function(data) {
-				return this.url + data
-			}
-		}
 
 		$('.date').on('focus', function() {
 			$('.date').attr({
@@ -145,6 +143,15 @@ layui.use(['jquery', 'form'], function() {
 			}
 		})
 
+    $('.Mdate').on('change', function() {
+      if($('.Mdate').val()) {
+        $('.next').css('backgroundColor', '#d4d9da').off('click')
+        $('.next').css('backgroundColor', 'rgb(82, 200, 253)').on('click', postM)
+      } else {
+        $('.next').css('backgroundColor', '#d4d9da').off('click')
+      }
+    })
+
 		function postM() {
 
 			var m_url = Main.urll('/wechat-web/wechat/updatePatientInfo');
@@ -177,7 +184,7 @@ layui.use(['jquery', 'form'], function() {
 				contentType: 'application/json;charset=utf-8',
 				success: function(data) {
 					if(data.status==0){
-						location.href = "post.html"
+						location.href = `${context}/wechat/forwardPage/post?user_id=`+user_Id
 					}else{
 						layer.msg(data.rspMsg)
 					}

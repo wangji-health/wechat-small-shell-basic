@@ -1,13 +1,10 @@
+import '../layui/css/layui.css';
+import '../css/giveBirth_info.scss';
+import {context, htmlPath,Main} from './core/constants';
+
 layui.use(['jquery', 'form'], function() {
 	var $ = layui.jquery,
 		layer = layui.layer;
-
-	var Main = {
-		url: "http://localhost:8080",
-		urll: function(data) {
-			return this.url + data
-		}
-	}
 
 	//监听日期选择
 	$('#date').on('change', function() {
@@ -37,8 +34,8 @@ layui.use(['jquery', 'form'], function() {
 
 	//监听胎儿数量
 	$('.babyNumBox').on('click', '.bb', function() {
-		$('.checked').removeClass('checked').find('.imck').prop('src', 'img/notck.png');
-		$(this).addClass('checked').find('.imck').prop('src', 'img/ck.png');
+		$('.checked').removeClass('checked').find('.imck').prop('src', require('../img/notck.png'));
+		$(this).addClass('checked').find('.imck').prop('src', require('../img/ck.png'));
 
 		if($(this).index() == 0) {
 			console.log('选择的是单胎');
@@ -65,8 +62,8 @@ layui.use(['jquery', 'form'], function() {
 	//监听baby1是否有缺陷
 	$('.badNumBox').on('click', '.bad', function() {
 
-		$('.isBad').removeClass('isBad').find('.iimck').prop('src', 'img/notck.png');
-		$(this).addClass('isBad').find('.iimck').prop('src', 'img/ck.png')
+		$('.isBad').removeClass('isBad').find('.iimck').prop('src', require('../img/notck.png'));
+		$(this).addClass('isBad').find('.iimck').prop('src', require('../img/ck.png'))
 		console.log($(this).index());
 
 		if($(this).index() == 0) {
@@ -85,8 +82,8 @@ layui.use(['jquery', 'form'], function() {
 	//监听baby2是否有缺陷
 	$('.badNumBox2').on('click', '.bad_no2', function() {
 
-		$('.isBad2').removeClass('isBad2').find('.iimck2').prop('src', 'img/notck.png');
-		$(this).addClass('isBad2').find('.iimck2').prop('src', 'img/ck.png')
+		$('.isBad2').removeClass('isBad2').find('.iimck2').prop('src', require('../img/notck.png'));
+		$(this).addClass('isBad2').find('.iimck2').prop('src', require('../img/ck.png'))
 		console.log($(this).index());
 
 		if($(this).index() == 0) {
@@ -105,8 +102,8 @@ layui.use(['jquery', 'form'], function() {
 	//监听baby3是否有缺陷
 	$('.badNumBox3').on('click', '.bad_no3', function() {
 
-		$('.isBad3').removeClass('isBad3').find('.iimck3').prop('src', 'img/notck.png');
-		$(this).addClass('isBad3').find('.iimck3').prop('src', 'img/ck.png')
+		$('.isBad3').removeClass('isBad3').find('.iimck3').prop('src', require('../img/notck.png'));
+		$(this).addClass('isBad3').find('.iimck3').prop('src', require('../img/ck.png'))
 		console.log($(this).index());
 
 		if($(this).index() == 0) {
@@ -123,7 +120,8 @@ layui.use(['jquery', 'form'], function() {
 	})
 
 	//获取user_id
-	var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
+	// var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
+		var url = location.href,
 
 		userId_startIndex = url.indexOf('user_id=') + 8,
 
@@ -170,8 +168,8 @@ layui.use(['jquery', 'form'], function() {
 			"third_Baby_Weight": $('#weight3').val(),
 			"user_Id": user_Id
 		};
-
-		real_babyInfo = JSON.stringify(babyInfo)
+		// console.log(JSON.stringify(babyInfo))
+		var real_babyInfo = JSON.stringify(babyInfo);
 
 		$.ajax({
 			type: "post",
@@ -184,7 +182,7 @@ layui.use(['jquery', 'form'], function() {
 				console.log(data);
 				
 				if(data.status==0){
-					location.href = 'post.html'
+					location.href = `${context}/wechat/forwardPage/post?user_id=`+user_Id
 				}else{
 					layer.msg(data.rspMsg)
 				}

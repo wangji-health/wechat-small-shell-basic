@@ -167,7 +167,7 @@ layui.use(['jquery', 'form'], function () {
           success: function (data) {
             console.log(data)
             if (data.status === 0) {
-              location.href = `${context}/wechat/${htmlPath}/index.html`
+              location.href = `${context}/wechat/forwardPage/index`
 
             } else {
               layer.msg(data.rspMsg)

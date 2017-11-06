@@ -1,3 +1,7 @@
+import '../layui/css/layui.css';
+import '../css/antivirus.scss';
+import {context, htmlPath,Main} from './core/constants';
+
 layui.use('jquery', function() {
 
 	var $ = layui.jquery,
@@ -9,11 +13,16 @@ layui.use('jquery', function() {
 	$('.banner').height(parseInt(bannerWidth) / 1.39);
 	console.log(parseInt(bannerWidth) / 1.39);
 	$('.medicine_redordBox').on('click', function() {
-		location.href = 'add_record.html'
+		location.href = `${context}/wechat/forwardPage/add_record?user_id=`+user_Id;
 	})
-
+	$('.hasB').on('click',function () {
+		location.href = 'http://mp.weixin.qq.com/s/NgicLpjjEtrWeqtc7bNz1A'
+  })
 	//获取user_id
-	var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
+
+	// var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
+
+	var	url = location.href,
 
 		userId_startIndex = url.indexOf('user_id=') + 8,
 
@@ -26,7 +35,7 @@ layui.use('jquery', function() {
 	console.log(user_Id);
 	$.ajax({
 		type: "get",
-		url: "http://localhost:8080/wechat-web/wechat/getMyDrugUseInfoExtendList/" + user_Id,
+		url: Main.urll(`${context}/wechat/getMyDrugUseInfoExtendList/`) + user_Id,
 		async: true,
 		dataType: 'json',
 		contentType: 'application/json;charset=utf-8',
@@ -64,7 +73,7 @@ layui.use('jquery', function() {
 					
 					window.name = JSON.stringify(amend)
 					
-					location.href = "amend_record.html"
+					location.href = `${context}/wechat/forwardPage/amend_record?user_id=`+user_Id;
 				})
 
 			}

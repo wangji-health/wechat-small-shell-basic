@@ -11,8 +11,9 @@ layui.use(['jquery', 'form'], function() {
 
 	$().ready(function() {
 		
-		//		var url = location.href 
-		var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232&doctor_phone=6c0b513bb1c751a19ac6465b9db837e9'
+				var url = location.href
+
+		// var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/?user_id=170908101424883232&doctor_phone=6c0b513bb1c751a19ac6465b9db837e9'
 
 			,
 			userId_startIndex = url.indexOf('user_id=') + 8
@@ -54,7 +55,7 @@ layui.use(['jquery', 'form'], function() {
 		form.on('radio(isPregnant)', function(data) {
 
 			console.log(data.value);
-			isPregnant = data.value
+			isPregnant = data.value;
 
 			if(data.value == 0) {
 				$('.next').html('完成')
@@ -67,11 +68,11 @@ layui.use(['jquery', 'form'], function() {
 				$('.birth_time').css('display', 'none')
 
 			} else if(data.value == 0) {
-				$('.last_menses').css('display', 'none')
+				$('.last_menses').css('display', 'none');
 				$('.birth_time').css('display', 'none')
 
 			} else if(data.value == 2) {
-				$('.last_menses').css('display', 'block')
+				$('.last_menses').css('display', 'block');
 				$('.birth_time').css('display', 'block')
 
 			}
@@ -326,7 +327,7 @@ layui.use(['jquery', 'form'], function() {
 				basic_data = JSON.stringify(data)
 
 			if(checkName() && birthTime() && Nation() && Hepatitis() && Pregnant()) {
-				var basic_url = Main.urll("/wechat-web/wechat/updatePatientInfo");
+				var basic_url = Main.urll(`${context}/wechat/updatePatientInfo`);
 				$.ajax({
 					type: "post",
 					url: basic_url,
@@ -335,9 +336,10 @@ layui.use(['jquery', 'form'], function() {
 					dataType: 'json',
 					contentType: 'application/json;charset=utf-8',
 					success: function(data) {
-						console.log(data)
+						console.log(data);
 
-						var isTurnBingUrl = 'http://localhost:8080/wechat-web/wechat/trunBindDoctorLink?patient_user_id=' + user_Id + '&doctor_phone=' + doctor_Phone
+						var isTurnBingUrl = Main.urll(`${context}/wechat/trunBindDoctorLink?patient_user_id=`)+ user_Id + '&doctor_phone=' + doctor_Phone;
+						        // 'http://localhost:8080/wechat-web/wechat/trunBindDoctorLink?patient_user_id=' + user_Id + '&doctor_phone=' + doctor_Phone
 
 						$.ajax({
 							type: "get",
@@ -348,9 +350,9 @@ layui.use(['jquery', 'form'], function() {
 							success: function(data) {
 								console.log(data)
 								if(data.data == true) {
-									location.href = 'http://localhost:8080/wechat-web/wechat/bind_doctor.html'
+									location.href = `${context}/wechat/forwardPage/bind_doctor?user_id=`+user_Id;
 								} else if(data.data == false) {
-									location.href = "http://localhost:8080/wechat-web/wechat/post.html"
+									location.href = `${context}/wechat/forwardPage/wechat/post?user_id=`+user_Id;
 								}
 							},
 							error: function() {

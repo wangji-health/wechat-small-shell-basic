@@ -241,7 +241,7 @@ input[type=text] {
   color: #FFFFFF; }
 
 .cancel {
-  width: calc(48%-2px);
+  width: calc(48% - 2px);
   height: 3rem;
   background-color: #FFFFFF;
   border: 1px solid rgba(41, 44, 52, 0.5);

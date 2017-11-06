@@ -1,3 +1,4 @@
+import {context, htmlPath,Main} from './core/constants';
 layui.use(['jquery', 'form'], function() {
 	var $ = layui.jquery,
 		layer = layui.layer,
@@ -5,7 +6,7 @@ layui.use(['jquery', 'form'], function() {
 		
 	$().ready(function() {
 		//判断补充基本信息
-		var basic_urll = 'http://localhost:8080/wechat-web/wechat/getPatientInfo/' + layui.data('userData').user2
+		var basic_urll = `${context}/wechat/getPatientInfo/` + layui.data('userData').user2;
 
 		$.ajax({
 			type: "get",
@@ -29,8 +30,8 @@ layui.use(['jquery', 'form'], function() {
 					
 					if(user.full_Name && user.birth_Date && user.nation && user.is_Hepatitis && user.pregnant_Status){
 						
-						location.href = "http://localhost:8080/wechat-web/wechat/bind_doctor.html"
-						
+						location.href = `${context}/wechat/forwardPage/bind_doctor`
+
 					}
 					
 					if(user.birth_Date) {

@@ -1,3 +1,6 @@
+import '../layui/css/layui.css';
+import '../css/bind_doctor.scss';
+import {context,htmlPath,Main} from './core/constants';
 layui.use(['jquery', 'form'], function() {
 
 	var $ = layui.jquery,
@@ -6,9 +9,9 @@ layui.use(['jquery', 'form'], function() {
 
 	$().ready(function() {
 
-		//		var url = location.href
+				var url = location.href
 
-		var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232&doctor_phone=6c0b513bb1c751a19ac6465b9db837e9'
+		// var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232&doctor_phone=6c0b513bb1c751a19ac6465b9db837e9'
 
 			,
 			userId_startIndex = url.indexOf('user_id=') + 8
@@ -37,8 +40,8 @@ layui.use(['jquery', 'form'], function() {
 
 			userId = user_Id,
 
-			urll = "http://localhost:8080/wechat-web/wechat/getPatientBindHospitalWechat?patient_user_id=" + userId + '&doctor_phone=' + doctor_phone
-
+			// urll = "/wechat-web/wechat/getPatientBindHospitalWechat?patient_user_id=" + userId + '&doctor_phone=' + doctor_phone
+			urll = Main.urll(`${context}/wechat/getPatientBindHospitalWechat?patient_user_id=`) + userId + '&doctor_phone=' + doctor_phone;
 		console.log(userId);
 
 		console.log(urll);
@@ -78,7 +81,7 @@ layui.use(['jquery', 'form'], function() {
 
 					$.ajax({
 						type: "get",
-						url: 'http://localhost:8080/wechat-web/wechat/getPatientBindDoctorWechat?patient_user_id=' + userId + '&doctor_phone=' + doctor_phone + '&hospital_name=' + hostital_Name,
+						url: Main.urll(`${context}/wechat/getPatientBindDoctorWechat?patient_user_id=`) + userId + '&doctor_phone=' + doctor_phone + '&hospital_name=' + hostital_Name,
 						async: true,
 						dataType: 'json',
 						contentType: 'application/json;charset=utf-8',
@@ -402,15 +405,13 @@ layui.use(['jquery', 'form'], function() {
 								console.log(bind_id)
 								
 								console.log(doctor_list())
-								
-								var url = 'http://localhost:8080/wechat-web/wechat/addBindDoctorWechat?doctor_user_id_list=' +bind_id+doctor_list() + '&patient_user_id=' + userId;
 
+								// var url = 'http://localhost:8080/wechat-web/wechat/addBindDoctorWechat?doctor_user_id_list=' +bind_id+doctor_list() + '&patient_user_id=' + userId;
+                var url = Main.urll(`${context}/wechat/addBindDoctorWechat?doctor_user_id_list=`)+bind_id+doctor_list() + '&patient_user_id=' + userId;
 								if(isChoseInfect() || isChoseBirth() || isChoseBirth()) {
-
 									console.log(url)
-
 									$.ajax({
-										type: "post",
+										type: "get",
 										url: url,
 										dataType: 'json',
 										contentType: 'application/json;charset=utf-8',
@@ -418,7 +419,7 @@ layui.use(['jquery', 'form'], function() {
 											console.log(data)
 											if(data.status == 0) {
 												sessionStorage.clear()
-												location.href = 'http://localhost:8080/wechat-web/wechat/post.html'
+												location.href = `${context}/wechat/forwardPage/post?user_id=`+user_Id
 											} else {
 												layer.msg(data.rspMsg)
 											}
@@ -504,11 +505,13 @@ layui.use(['jquery', 'form'], function() {
 							'color': '#2fafff',
 						})
 
-						console.log('http://localhost:8080/wechat-web/wechat/getPatientBindDoctorWechat?patient_user_id=' + userId + '&doctor_phone=' + '&hospital_name=' + $(this).html())
+						console.log(Main.urll(`${context}/wechat/getPatientBindDoctorWechat?patient_user_id=`) + userId + '&doctor_phone=' + '&hospital_name=' + $(this).html())
 
-						$.ajax({
+						// Main.urll(`${context}/wechat/getPatientBindDoctorWechat?patient_user_id=`) + userId + '&doctor_phone=' + '&hospital_name=' + $(this).html(),
+
+            $.ajax({
 							type: "get",
-							url: 'http://localhost:8080/wechat-web/wechat/getPatientBindDoctorWechat?patient_user_id=' + userId + '&doctor_phone=' + '&hospital_name=' + $(this).html(),
+							url: Main.urll(`${context}/wechat/getPatientBindDoctorWechat?patient_user_id=`) + userId + '&doctor_phone=' + '&hospital_name=' + $(this).html(),
 							async: true,
 							dataType: 'json',
 							contentType: 'application/json;charset=utf-8',
@@ -774,8 +777,9 @@ layui.use(['jquery', 'form'], function() {
 
 					$('.bind_sure').on('click', function() {
 
-						var url = 'http://localhost:8080/wechat-web/wechat/addBindDoctorWechat?doctor_user_id_list=' + doctor_list() + '&patient_user_id=' + userId;
+						// var url = 'http://localhost:8080/wechat-web/wechat/addBindDoctorWechat?doctor_user_id_list=' + doctor_list() + '&patient_user_id=' + userId;
 
+						var url = Main.urll(`${context}/wechat-web/wechat/addBindDoctorWechat?doctor_user_id_list=`) + doctor_list() + '&patient_user_id=' + userId;
 						if(isChoseInfect() || isChoseBirth() || isChoseBirth()) {
 
 							console.log(url)
@@ -789,7 +793,7 @@ layui.use(['jquery', 'form'], function() {
 									console.log(data)
 									if(data.status == 0) {
 										sessionStorage.clear()
-										location.href = 'http://localhost:8080/wechat-web/wechat/post.html'
+										location.href = `${context}/wechat/forwardPage/post?user_id=`+user_Id
 									} else {
 										layer.msg(data.rspMsg)
 									}

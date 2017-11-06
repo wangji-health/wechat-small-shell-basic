@@ -1,22 +1,20 @@
+import '../layui/css/layui.css';
+import '../css/amend.scss';
+import {context, htmlPath,Main} from './core/constants';
 layui.use('jquery', function() {
 	var $ = layui.jquery,
 		layer = layui.layer;
 
 	//获取user_id
-	var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
+	// var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
+
+		var url = location.href,
 
 		userId_startIndex = url.indexOf('user_id=') + 8,
 
 		user_Id = url.slice(userId_startIndex);
 
 	console.log(user_Id);
-
-	var Main = {
-		url: "http://localhost:8080",
-		urll: function(data) {
-			return this.url + data
-		}
-	}
 
 	//控制确定和取消按钮高度一致
 	var sureH = $('.sure').height();
@@ -126,7 +124,7 @@ layui.use('jquery', function() {
 			"user_Id": "",
 			"way": ""
 		};
-		real_data = JSON.stringify(re_data)
+		var real_data = JSON.stringify(re_data)
 
 		$.ajax({
 			type: "post",
@@ -137,7 +135,7 @@ layui.use('jquery', function() {
 			contentType: 'application/json;charset=utf-8',
 			success: function(data) {
 				console.log(data);
-				location.href = 'antivirus.html'
+				location.href = `${context}/wechat/forwardPage/antivirus?user_id=` + user_Id;
 			},
 			error: function() {
 				console.log(data)
@@ -167,7 +165,7 @@ layui.use('jquery', function() {
 			contentType: 'application/json;charset=utf-8',
 			success: function(data) {
 				console.log(data);
-				location.href = 'antivirus.html'
+				location.href = `${context}/wechat/forwardPage/antivirus?user_id=` + user_Id;
 			},
 			error: function() {
 				console.log(data)

@@ -29,22 +29,26 @@ body {
 }
 
 .top1 {
-    background: url(/wechat-web/wechat/img/sheet.png);
+    background: url(../img/sheet.png);
 }
 
 .top2 {
     margin-top: 20px;
-    background: url(/wechat-web/wechat/img/record.png);
+    background: url(../img/record.png);
 }
 
 .top3 {
     margin-top: 20px;
-    background: url(/wechat-web/wechat/img/mRecord.png);
+    background: url(../img/mRecord.png);
+}
+
+.babyNum{
+    display: none;
 }
 
 .top4 {
     margin-top: 20px;
-    background: url(/wechat-web/wechat/img/pregnant.png);
+    background: url(../img/pregnant.png);
 }
 
 .out{
