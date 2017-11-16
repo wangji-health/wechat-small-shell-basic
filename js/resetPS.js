@@ -9,16 +9,35 @@ layui.use(['jquery', 'form'], function () {
     form = layui.form();
   $().ready(function () {
 
+    var lightHeight = $('.cRes-light').height();
+    var lightWidth = lightHeight/1.185;
+    $('.cRes-light').width(lightWidth);
     //是否显示密码
+    // var url = 'http://c7f31360.ngrok.io/wechat-web/wechat/judge/loginOrRegister?doctor_phone=6c0b513bb1c751a19ac6465b9db837e9&openid=c547e5d570040d00b1d4a89eb3c981d855e0d0eb952d2a4c3aa2a88a006f4b10'
+     var url = location.href
+      ,idIndex = url.indexOf('openid')
 
+      ,openid = url.slice(idIndex+7)
+
+      ,phoneStartIndex = url.indexOf('phone')+6
+
+      ,phoneEndIndex = url.indexOf('&')
+
+      ,phoneNum = url.slice(phoneStartIndex,phoneEndIndex);
+
+    console.log(openid);
+    console.log(phoneNum);
     $('.cRes-light').on('click', function () {
       var input = document.getElementById("cRes-ps");
+      var input2 = document.getElementById("res-ps");
+      console.log(input2)
       if (input.type == 'password') {
-        input.type = 'Text'
+        input.type = 'Text';
+        input2.type = 'Text';
         $('#dark').attr("src", require('../img/light.png'))
-
       } else if (input.type = 'Text') {
-        input.type = 'password'
+        input.type = 'password';
+        input2.type = 'password';
         $('#dark').attr("src", require('../img/dark.png'))
       }
     })
@@ -61,10 +80,14 @@ layui.use(['jquery', 'form'], function () {
           layer.msg(data.rspMsg);
           if (data.status === 0) {
             $(".res-gvf").off("click").css("backgroundColor", "#cccccc");
-            var tmp = 60
+            var clickTime = new Date().getTime();
+            var tmp = 120
             $(".res-gvf").html(tmp + "s")
             var setTime = setInterval(function () {
-              --tmp
+              var nowTime = new Date();
+              var realtime = parseInt((nowTime - clickTime) / 1000)
+              console.log(realtime);
+              var tmp = 120 - realtime;
               $(".res-gvf").html(tmp + "s");
               if (tmp <= 0) {
                 if (phoneNum.length === 11) {
@@ -167,8 +190,9 @@ layui.use(['jquery', 'form'], function () {
           success: function (data) {
             console.log(data)
             if (data.status === 0) {
-              location.href = `${context}/wechat/forwardPage/index`
-
+              // location.href = `${context}/wechat/forwardPage/index`
+              location.href = `${context}/wechat/judge/loginOrRegister?doctor_phone=` + phoneNum + "&openid=" + openid
+              // wechat/judge/loginOrRegister?doctor_phone=" + doctor_phone + "&openid=" + encrypt_openid
             } else {
               layer.msg(data.rspMsg)
               return false;

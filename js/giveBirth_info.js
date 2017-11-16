@@ -74,9 +74,7 @@ layui.use(['jquery', 'form'], function() {
 			$('#sickName').val('')
 			sessionStorage.baby1Defect = "否";
 		}
-
 		console.log(sessionStorage.baby1Defect)
-
 	})
 
 	//监听baby2是否有缺陷
@@ -94,9 +92,7 @@ layui.use(['jquery', 'form'], function() {
 			$('#sickName2').val('')
 			sessionStorage.baby2Defect = "否";
 		}
-
 		console.log(sessionStorage.baby2Defect)
-
 	})
 
 	//监听baby3是否有缺陷
@@ -140,7 +136,7 @@ layui.use(['jquery', 'form'], function() {
 		} else {
 			$('.save').css('backgroundColor', '#d4d9da').off('click');
 		}
-	})
+	});
 
 //	"delivery_Time": $('#time').val(),
 	//	$('.save').on('click', postBabyInfo)
@@ -157,15 +153,15 @@ layui.use(['jquery', 'form'], function() {
 			"first_Baby_Have_Physiological_Defect": sessionStorage.baby1Defect,
 			"first_Baby_Height": $('#height').val(),
 			"first_Baby_Physiological_Defect": $('#sickName').val(),
-			"first_Baby_Weight": $('#weight').val(),
+			"first_Baby_Weight": $('#weight').val()*50+$('#weightt').val()*500,
 			"second_Baby_Have_Physiological_Defect": sessionStorage.baby2Defect,
 			"second_Baby_Height": $('#height2').val(),
 			"second_Baby_Physiological_Defect": $('#sickName2').val(),
-			"second_Baby_Weight": $('#weight2').val(),
+			"second_Baby_Weight": $('#weight2').val()*50+$('#weightt2').val()*500,
 			"third_Baby_Have_Physiological_Defect": sessionStorage.baby3Defect,
 			"third_Baby_Height": $('#height3').val(),
 			"third_Baby_Physiological_Defect": $('#sickName3').val(),
-			"third_Baby_Weight": $('#weight3').val(),
+			"third_Baby_Weight": $('#weight3').val()*50+$('#weightt3').val()*500,
 			"user_Id": user_Id
 		};
 		// console.log(JSON.stringify(babyInfo))
@@ -182,7 +178,7 @@ layui.use(['jquery', 'form'], function() {
 				console.log(data);
 				
 				if(data.status==0){
-					location.href = `${context}/wechat/forwardPage/post?user_id=`+user_Id
+					location.href = `${context}/wechat/forwardPage/post?user_id=`+user_Id+'&doctor_phone='
 				}else{
 					layer.msg(data.rspMsg)
 				}

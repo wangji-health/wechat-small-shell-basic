@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const ipAddress = '192.168.8.93';
+const ipAddress = '192.168.8.102';
 const port = 3000;
 module.exports = {
   entry: {
@@ -17,7 +17,8 @@ module.exports = {
     'pregnant_info':'./js/pregnant_info.js',
     'register':'./js/register.js',
     'supplementary_info':'./js/supplementary_info.js',
-    'laboratorySheet':'./js/laboratorySheet.js'
+    'laboratorySheet':'./js/laboratorySheet.js',
+    'thanks':'./js/thanks.js'
   },
   devServer: {
     hot: true,

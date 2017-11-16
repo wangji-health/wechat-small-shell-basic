@@ -1,0 +1,52 @@
+html,body{
+  margin: 0;
+  padding: 0;
+}
+html{
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+}
+.banner{
+  margin-top: 17%;
+  width: 100%;
+}
+.tks{
+  display: block;
+  margin: auto;
+}
+.word{
+  color: rgb(60,66,78);
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 9.6%;
+  font-weight: 900;
+}
+.word1{
+  text-align: center;
+  margin-top: 5.4%;
+  color: rgb(125,136,158);
+}
+.word2{
+  text-align: center;
+  margin-top: 2.4%;
+  color: rgb(125,136,158);
+}
+.btnBox{
+  width: 100%;
+  height: 45px;
+  margin-top: 7.6%;
+  text-align: center;
+  .connect{
+    display: block;
+    text-decoration: none;
+    width: 44%;
+    height: 3rem;
+    margin: auto;
+    background-color: rgb(47,175,255);
+    border-radius: 50px;
+    line-height: 3rem;
+    color: #ffffff;
+    font-size: 1rem;
+  }
+}

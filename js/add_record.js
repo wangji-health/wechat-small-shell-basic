@@ -123,6 +123,9 @@ layui.use('jquery', function() {
 			//后期还用取消save的事件
 		}
 	})
+  // $('#have').on('change',function () {
+		// $(this).css('color','')
+  // })
 
 	function pst() {
 

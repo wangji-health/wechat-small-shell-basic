@@ -6,7 +6,19 @@ layui.use(['jquery', 'form'], function() {
 		
 	$().ready(function() {
 		//判断补充基本信息
-		var basic_urll = `${context}/wechat/getPatientInfo/` + layui.data('userData').user2;
+
+		var url = location.href
+      ,
+      userId_startIndex = url.indexOf('user_id=') + 8
+      ,
+      userId_endIndex = url.indexOf("&")
+      ,
+      user_Id = url.slice(userId_startIndex, userId_endIndex);
+
+    console.log(user_Id);
+    //
+		var basic_urll = `${context}/wechat/getPatientInfo/` + user_Id;
+		// var basic_urll = `${context}/wechat/getPatientInfo/` + '171109064351794189';
 
 		$.ajax({
 			type: "get",
@@ -23,7 +35,7 @@ layui.use(['jquery', 'form'], function() {
 				console.log(user)
 
 				if(user == null) {
-					alert('该用户还未注册过，请填写信息')
+					// alert('该用户还未注册过，请填写信息')
 					return true;
 				} else if(user) {
 					
@@ -39,6 +51,14 @@ layui.use(['jquery', 'form'], function() {
 						$('.date').val(user.birth_Date)
 
 					}
+					if(user.info_Photo){
+						$('.photo').css({
+							width:100,
+							height:100,
+							borderRadius:200
+						}).prop('src',user.info_Photo)
+					}
+
 					if(user.full_Name) {
 
 						$('#real-name').val(user.full_Name)
@@ -71,7 +91,8 @@ layui.use(['jquery', 'form'], function() {
 
 						} else if(user.is_Hepatitis == 0) {
 
-							sessionStorage.Hep = '0'
+							sessionStorage.Hep = '0';
+              location.href = `${context}/wechat/forwardPage/thanks`
 						}
 
 					}

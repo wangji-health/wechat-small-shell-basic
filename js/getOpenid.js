@@ -2,7 +2,7 @@ layui.use('jquery',function(){
 	var $ = layui.jquery;
 	$().ready(function(){
 		var url = location.href
-		// var url = 'http://c7f31360.ngrok.io/wechat-web/wechat/judge/loginOrRegister?doctor_phone=6c0b513bb1c751a19ac6465b9db837e9&openid=c547e5d570040d00b1d4a89eb3c981d855e0d0eb952d2a4c3aa2a88a006f4b10'
+		// var url = 'http://test2.vongihealth.com/wechat-web/wechat/judge/loginOrRegister?doctor_phone=&openid=c547e5d570040d00b1d4a89eb3c981d855e0d0eb952d2a4c3aa2a88a006f4b10'
 		
 		,idIndex = url.indexOf('openid')
 		
@@ -12,8 +12,9 @@ layui.use('jquery',function(){
 		
 		,phoneEndIndex = url.indexOf('&')
 		
-		,phoneNum = url.slice(phoneStartIndex,phoneEndIndex)
-		
+		,phoneNum = url.slice(phoneStartIndex,phoneEndIndex);
+
+		console.log(location.href);
 		layui.data('openid',{
 			key:'openid',
 			value:openid
@@ -21,11 +22,8 @@ layui.use('jquery',function(){
 
 		// console.log('openid:'+openid)
 
-		layui.data('doctor_phone',{
-			key:'phone',
-			value:phoneNum
-		})
-		
-		
+		localStorage.phoneNum = phoneNum;
+		console.log(openid)
+
 	})
 })

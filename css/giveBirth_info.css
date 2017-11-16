@@ -51,7 +51,7 @@ input {
 ::-webkit-input-placeholder {
   font-size: 0.85rem; }
 
-.bd, .height, .weight, .sickNameBox, .sickNameBox2, .sickNameBox3 {
+.bd, .height, .sickNameBox, .sickNameBox2, .sickNameBox3 {
   width: 100%;
   height: 3.5rem;
   border-bottom: 1px solid #f0f0f0;
@@ -146,7 +146,7 @@ input {
   font-size: 1rem;
   color: #8a94a6; }
 
-.height, .weight, .sickNameBox, .sickNameBox2, .sickNameBox3 {
+.height, .sickNameBox, .sickNameBox2, .sickNameBox3 {
   position: relative; }
 
 .cm, .g, .no {
@@ -154,7 +154,7 @@ input {
   height: 3.5rem;
   line-height: 3.5rem; }
 
-#height, #weight, #sickName, #sickName2, #sickName3, #weight2, #weight3, #height2, #height3 {
+#height, #weight, #sickName, #sickName2, #sickName3, #weight2, #weightt2, #weight3, #weightt3, #weightt, #height2, #height3 {
   width: 3rem;
   float: right;
   border: none;
@@ -163,6 +163,16 @@ input {
   padding: 1.25rem 0;
   text-align: right;
   padding-right: 0.5rem; }
+
+.weight {
+  width: 100%;
+  height: 3.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #FFFFFF;
+  position: relative; }
+
+.g, .no {
+  margin-right: 1rem; }
 
 #tall, #wg, #NM {
   position: absolute;

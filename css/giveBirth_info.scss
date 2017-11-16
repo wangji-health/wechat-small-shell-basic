@@ -67,11 +67,17 @@ input {
     border-bottom: 1px solid rgb(240, 240, 240);
     background-color: #FFFFFF;
 }
-
+@mixin wt{
+    width: 100%;
+    height: 3.5rem;
+    border-bottom: 1px solid rgb(240, 240, 240);
+    background-color: #FFFFFF;
+    position: relative;
+}
 .birth {
     width: 33.3%;
     height: 3.5rem;
-    //  background: yellow;
+      //background: yellow;
     float: left;
     line-height: 3.5rem;
     font-size: 1rem;
@@ -80,20 +86,20 @@ input {
 
 .birth_date {
     @extend .birth;
-    //  background: green;
+      //background: green;
     text-align: center;
     color: rgb(135, 145, 163);
 }
 
 .birth_time {
     @extend .birth;
-    //  background: palevioletred;
+      //background: palevioletred;
     text-align: right;
     color: rgb(135, 145, 163);
 }
 
 #date {
-    //  background: red;
+      //background: red;
     position: absolute;
     width: 30%;
     height: 3.5rem;
@@ -234,19 +240,21 @@ input {
 
 #weight {
     @extend #height;
+    //background-color: yellow;
 }
 
 .weight {
-    @extend .height;
+    @include wt;
 }
 
 .g {
-    @extend .cm
+    @extend .cm;
+    margin-right: 1rem;
 }
 
 #tall {
     position: absolute;
-    //  background-color: aquamarine;
+      //background-color: aquamarine;
     height: 3.5rem;
     line-height: 3.5rem;
     top: 0;
@@ -487,4 +495,13 @@ label {
             line-height: 1rem;
         }
     }
+}
+#weightt{
+    @extend #weight;
+}
+#weightt3{
+    @extend #weight3;
+}
+#weightt2{
+    @extend #weight2;
 }

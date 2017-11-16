@@ -7,26 +7,21 @@ button,
 span,
 a {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 a {
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 html {
-  font-size: 16px;
-}
+  font-size: 16px; }
 
 body {
-  background-color: #f7f8fc;
-}
+  background-color: #f7f8fc; }
 
 .content {
   width: 100%;
   height: 100%;
-  margin-top: 10px;
-}
+  margin-top: 10px; }
 
 #res-submit {
   width: 95%;
@@ -35,30 +30,25 @@ body {
   margin-top: 1rem;
   background-color: #2eafff;
   height: 3rem;
-  font-size: 1.1rem;
-}
+  font-size: 1.1rem; }
 
 .noBorder {
   border: none;
   padding-left: 0.8rem;
-  width: 100%;
+  width: calc(100% - 0.8rem);
   height: 3rem;
-  border-radius: 0;
-}
+  border-radius: 0; }
 
 .res-ps {
-  margin-top: 0.5rem;
-}
+  margin-top: 0.5rem; }
 
 .bd-bottom {
-  border-bottom: 1px solid #f8f8f8;
-}
+  border-bottom: 1px solid #f8f8f8; }
 
 .res-vc {
   float: left;
   width: 70%;
-  height: 3rem;
-}
+  height: 3rem; }
 
 .res-gvf {
   float: right;
@@ -68,22 +58,24 @@ body {
   color: #FFFFFF;
   height: 2.6rem;
   margin: 0.2rem 0.5rem 0 0;
-  text-align: center;
-}
+  text-align: center; }
 
-@media only screen and (min-width: 100px) and (max-width: 480px) {
+@media only screen and (min-width: 360px) and (max-width: 480px) {
   .res-vc {
-    width: 60%;
-  }
+    width: 60%; }
 
   .res-gvf {
-    width: 30%;
-  }
-}
+    width: 20%; } }
+@media only screen and (min-width: 100px) and (max-width: 359px) {
+  .res-vc {
+    width: 60%; }
+
+  .res-gvf {
+    width: 23%; } }
 .cRes-ps {
   float: left;
   width: 80%;
-}
+  height: 3rem; }
 
 .cRes-light {
   float: left;
@@ -91,24 +83,23 @@ body {
   height: 3rem;
   background-color: #FFFFFF;
   text-align: center;
-  line-height: 3rem;
-}
+  line-height: 3rem; }
+  .cRes-light #dark {
+    width: 65%;
+    height: 65%; }
 
 .protocolBox {
   width: 100%;
   margin-top: 2.6rem;
   text-align: center;
-  font-size: 1rem;
-}
+  font-size: 1rem; }
 
 .protocol {
-  color: #589ced;
-}
+  color: #589ced; }
 
 .back {
   font-size: 1.5rem;
-  color: #FFFFFF;
-}
+  color: #FFFFFF; }
 
 /*# sourceMappingURL=index.css.map */
 

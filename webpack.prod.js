@@ -25,7 +25,8 @@ module.exports = {
     'pregnant_info':'./js/pregnant_info.js',
     'register':'./js/register.js',
     'supplementary_info':'./js/supplementary_info.js',
-    'laboratorySheet':'./js/laboratorySheet.js'
+    'laboratorySheet':'./js/laboratorySheet.js',
+    'thanks':'./js/thanks.js'
   },
   output: {
     path: __dirname + '/build/',

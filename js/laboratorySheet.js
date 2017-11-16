@@ -1,12 +1,12 @@
 import {context, htmlPath, Main, appId} from './core/constants';
 import '../css/laboratorySheet.scss';
 // const wxUrl = Main.urll('/wechat-web/wechat/getWXConfig?url=')+location.href.split('#')[0];
-const wxUrl = Main.urll('/wechat-web/wechat/getWXConfig?url=') + location.href;
+const wxUrl = Main.urll('/wechat-web/wechat/getWXConfig');
 // "http://localhost:8080/wechat-web/wechat/getWXConfig?url=" + location.href
 $().ready(function () {
   //获取user_id
-  var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
-    // var url = location.href,
+  // var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
+    var url = location.href,
     userId_startIndex = url.indexOf('user_id=') + 8,
     user_Id = url.slice(userId_startIndex);
   console.log(user_Id);
@@ -54,7 +54,7 @@ $().ready(function () {
         $('.cHide').hide();
         var realDelIndex = JSON.parse(sessionStorage.delIndex);
         sessionStorage.removeItem('delIndex');
-        alert('这是从展示出删除的index:'+realDelIndex);
+        // alert('这是从展示出删除的index:'+realDelIndex);
         $('.postImg').eq(realDelIndex).remove();
         //获取删除id  需要重新请求不然会有错误
         $.ajax({
@@ -95,11 +95,13 @@ $().ready(function () {
   });
   //上传化验单接口
   $.ajax({
-    type: "get",
+    type: "post",
     url: wxUrl,
     async: true,
+    data:{
+      url:location.href
+    },
     dataType: 'json',
-    contentType: 'application/json;charset=utf-8',
     success: function (data) {
       console.log(data);
       var signature = data.data.signature;
@@ -137,7 +139,7 @@ $().ready(function () {
 
         //预览接口
         $('.imgBox').off().on('click',function () {
-          alert($(this).parents().index());
+          // alert($(this).parents().index());
           var index = $(this).parents().index();
           $('.postImg').eq(index).find('.pre').prop('src');
           // alert($('.postImg').eq(index).find('.pre').prop('src'));
@@ -155,9 +157,6 @@ $().ready(function () {
               });
             });
         });
-
-
-
         // 5.1 拍照、本地选图
         var images = {
           localId: [],
@@ -167,7 +166,7 @@ $().ready(function () {
           wx.chooseImage({
             success: function (res) {
               images.localId = res.localIds;
-              alert('已选择 ' + res.localIds.length + ' 张图片');
+              // alert('已选择 ' + res.localIds.length + ' 张图片');
               // alert(res.localIds);
               uploadPic()
             }
@@ -178,7 +177,7 @@ $().ready(function () {
         // document.querySelector('#uploadImage').onclick =
           function uploadPic() {
           if (images.localId.length == 0) {
-            alert('请先使用 chooseImage 接口选择图片');
+            // alert('请先使用 chooseImage 接口选择图片');
             return;
           }
           var i = 0,
@@ -197,7 +196,7 @@ $().ready(function () {
                   contentType: 'application/json;charset=utf-8',
                   success: function (data) {
                     // $('.word').html(data.data[0].assay_Url);
-                    alert('成功回调');
+                    // alert('成功回调');
                     console.log(data);
                     // alert(data.data[0].assay_Url);
                     // console.log(data);
@@ -208,10 +207,16 @@ $().ready(function () {
                     var screenWdith = $(window).width();
                     console.log(screenWdith);
                     // $('.postImg').width(screenWdith*0.44);
-                    $('.imgBox').width(screenWdith * 0.44).height(screenWdith * 0.44).off().on('click',function () {
-                      // alert($(this).parents().index());
-                      var index = $(this).parent().index();
-                      alert('图片的索引'+index);
+                    $('.imgBox').width(screenWdith * 0.44).height(screenWdith * 0.44);
+                    if($('.postImg').eq(0).html()){
+                      $(tmp).insertBefore($('.postImg').eq(0));
+                    }else{
+                      $('.container').append(tmp);
+                    }
+                    $('.imgBox').off().on('click',function () {
+                      // alert($(this).parent('.postImg').index('.postImg'));
+                      var index = $(this).parent('.postImg').index('.postImg');
+                      // alert('图片的索引'+index);
                       $('.postImg').eq(index).find('.pre').prop('src');
                       // alert($('.postImg').eq(index).find('.pre').prop('src'));
                       var nowUrl = $('.postImg').eq(index).find('.pre').prop('src');
@@ -229,17 +234,13 @@ $().ready(function () {
                       });
                     });
                     // $('.container').append(tmp);
-                    if($('.postImg').eq(0).html()){
-                      $(tmp).insertBefore($('.postImg').eq(0));
-                    }else{
-                      $('.container').append(tmp);
-                    }
+
                     console.log(tmp);
                     //新增的删除化验单接口
                     $('.del').off().on('click',function () {
                       $('.cHide').show();
                       var delIndex = $(this).parents('.postImg').index('.postImg');
-                      alert('新增index:'+delIndex);
+                      // alert('新增index:'+delIndex);
                       sessionStorage.newIndex = JSON.stringify(delIndex);
                       // $('.postImg').eq(delIndex).remove();
                     });
@@ -250,7 +251,7 @@ $().ready(function () {
                     $('.confirmSure').off().on('click',function () {
                       $('.cHide').hide();
                       var nowIndex = JSON.parse(sessionStorage.newIndex);
-                      alert('传过去的Index'+nowIndex);
+                      // alert('传过去的Index'+nowIndex);
                       sessionStorage.removeItem('newIndex');
                       $('.postImg').eq(nowIndex).remove();
                       //重新获取
@@ -285,10 +286,10 @@ $().ready(function () {
                   error: function () {
                   }
                 });
-                alert(serverId);
+                // alert(serverId);
                 // $('.word').html(serverId);
                 i++;
-                alert('已上传：' + i + '/' + length);
+                // alert('已上传：' + i + '/' + length);
                 images.serverId.push(res.serverId);
                 //下载
                 if (i < length) {

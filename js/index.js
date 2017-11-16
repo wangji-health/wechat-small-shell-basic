@@ -9,47 +9,21 @@ layui.use(['jquery', 'form'], function () {
     layer = layui.layer,
     form = layui.form();
   $().ready(function () {
-
     // alert(location.href);
+    var lightHeight = $('.ol-light').height();
+
+    var lightWidth = lightHeight/1.185;
+    $('.ol-light').width(lightWidth);
 
     $('.right').on('click',function () {
-      location.href = `${context}/wechat/forwardPage/register`
+      location.href = `${context}/wechat/forwardForgetPsPage/register?doctor_phone=`+localStorage.phoneNum+'&openid='+layui.data('openid').openid;
+      // location.href = `${context}/wechat/html_inline/register. html`;
     });
 
     $(".left").on("click", function() {
-      location.href = `${context}/wechat/forwardPage/forgetPS`
-    })
-
-    		var url = location.href
-
-    // var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232&doctor_phone=6c0b513bb1c751a19ac6465b9db837e9'
-
-      ,
-      userId_startIndex = url.indexOf('user_id=') + 8
-
-      ,
-      userId_endIndex = url.indexOf('&')
-
-      ,
-      user_Id = url.slice(userId_startIndex, userId_endIndex)
-
-      ,
-      doctorPhone_startIndex = url.indexOf('doctor_phone=') + 13
-
-      ,
-      doctor_Phone = url.slice(doctorPhone_startIndex);
-
-    //获取患者
-
-    console.log(user_Id);
-
-    //获取医生
-
-    console.log(doctor_Phone);
-
-    var doctor_phone = doctor_Phone,
-
-      userId = user_Id
+      location.href = `${context}/wechat/forwardForgetPsPage/forgetPS?doctor_phone=`+localStorage.phoneNum+'&openid='+layui.data('openid').openid;
+      // location.href = `${context}/wechat/html_inline/forgetPS.html`;
+    });
 
     //判断手机号码格式
     function phoneN() {
@@ -61,9 +35,7 @@ layui.use(['jquery', 'form'], function () {
         return true
       }
     }
-
     //是否显示密码
-
     $('.ol-light').on('click', function () {
       var input = document.getElementById('ol_ps');
       if (input.type == 'password') {
@@ -126,7 +98,7 @@ layui.use(['jquery', 'form'], function () {
 
                   if (user_info == null) {
 
-                    location.href = `${context}/wechat/forwardPage/basic_info`
+                    location.href = `${context}/wechat/forwardPage/basic_info?user_id=`+ layui.data('userData').user2 +'&doctor_phone=' +localStorage.phoneNum
 
                   }
 
@@ -136,12 +108,12 @@ layui.use(['jquery', 'form'], function () {
 
                   if (!user_info.full_Name || !user_info.birth_Date || !user_info.nation || !user_info.is_Hepatitis || !user_info.pregnant_Status) {
 
-                    location.href = `${context}/wechat/forwardPage/basic_info`+'?user_id='+ layui.data('userData').user2 + '&doctor_phone=' + doctor_phone
+                    location.href = `${context}/wechat/forwardPage/basic_info`+'?user_id='+ layui.data('userData').user2 + '&doctor_phone=' + localStorage.phoneNum
 
                   }
 
                   // var isTurnBingUrl = 'http://localhost:8080/wechat-web/wechat/trunBindDoctorLink?patient_user_id=' + user_Id + '&doctor_phone=' + doctor_phone
-                  var isTurnBingUrl = Main.urll(`${context}/wechat/trunBindDoctorLink?patient_user_id=`)+layui.data('userData').user2+'&doctor_phone='+doctor_phone
+                  var isTurnBingUrl = Main.urll(`${context}/wechat/trunBindDoctorLink?patient_user_id=`)+layui.data('userData').user2+'&doctor_phone='+localStorage.phoneNum
                   console.log(isTurnBingUrl);
                   $.ajax({
                     type: 'get',
@@ -153,10 +125,10 @@ layui.use(['jquery', 'form'], function () {
                       console.log(data)
                       if (data.data == true) {
                         // location.href = `${context}/wechat/${htmlPath}/bind_doctor.html`
-                        location.href = `${context}/wechat/forwardPage/bind_doctor?user_id=`+layui.data('userData').user2+'&doctor_phone='+doctor_phone
+                        location.href = `${context}/wechat/forwardPage/bind_doctor?user_id=`+layui.data('userData').user2+'&doctor_phone='+localStorage.phoneNum
                       } else if (data.data == false) {
                         // location.href = `${context}/wechat/${htmlPath}/post.html`
-                        location.href = `${context}/wechat/forwardPage/post`
+                        location.href = `${context}/wechat/forwardPage/post?user_id=`+layui.data('userData').user2+'&doctor_phone='+localStorage.phoneNum
                       }
                     },
                     error: function () {

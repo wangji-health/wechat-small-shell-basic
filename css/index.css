@@ -48,6 +48,9 @@ body {
   background-color: #FFFFFF;
   text-align: center;
   line-height: 3rem; }
+  .ol-light #dark {
+    width: 65%;
+    height: 65%; }
 
 .fgt {
   color: #3991d1;

@@ -76,7 +76,7 @@ body {
 .noBorder {
     border: none;
     padding-left: 0.8rem;
-    width: 100%;
+    width: calc(100% - 0.8rem);
     height: 3rem;
     border-radius: 0;
 }
@@ -107,18 +107,28 @@ body {
     text-align: center;
 }
 
-@media only screen and (min-width: 100px) and (max-width: 480px) {
+@media only screen and (min-width: 360px) and (max-width: 480px) {
     .res-vc {
         width: 60%;
     }
     .res-gvf {
-        width: 30%;
+        width: 20%;
+    }
+}
+@media only screen and (min-width: 100px) and (max-width: 359px) {
+    .res-vc {
+        width: 60%;
+    }
+    .res-gvf {
+        width: 23%;
     }
 }
 
 .cRes-ps {
     float: left;
     width: 80%;
+    //background-color: red;
+    height: 3rem;
 }
 
 .cRes-light {
@@ -128,6 +138,11 @@ body {
     background-color: #FFFFFF;
     text-align: center;
     line-height: 3rem;
+    //background-color: pink;
+    #dark{
+        width: 65%;
+        height: 65%;
+    }
 }
 
 .protocolBox {

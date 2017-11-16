@@ -8,23 +8,34 @@ layui.use(['jquery', 'form'], function() {
 		layer = layui.layer,
 		form = layui.form();
 
-	//	layer.msg('hello');
+		// layer.msg('hello');
 	$().ready(function() {
+		//跳转协议
+		$('.protocol').on('click',function () {
+			// location.href = 'location.href = `${context}/wechat/forwardPage/protocol';
+      location.href = `${context}/wechat/html_inline/protocol.html`;
+    });
 
+
+    var lightHeight = $('.hgt').height();
+    var lightWidth = lightHeight/1.185;
+    $('.cRes-light').width(lightWidth);
 		//是否显示密码
-
 		$('.cRes-light').on('click', function() {
-			var input = document.getElementById("cRes-ps");
+			var input = document.getElementById("res-ps");
+			var input2 = document.getElementById("cRes-ps");
+      // var input2 = $(".res-ps");
 			if(input.type == 'password') {
-				input.type = 'Text'
+				input.type = 'Text';
+				input2.type = 'Text';
 				$('#dark').attr("src", require('../img/light.png'))
 
 			} else if(input.type = 'Text') {
-				input.type = 'password'
+				input.type = 'password';
+				input2.type = 'password';
 				$('#dark').attr("src", require('../img/dark.png'))
 			}
-		})
-
+		});
 		//判断背景色和事件的取消解绑
 		function checkBgColor() {
 			$("#res-phoneNum").on("keyup", function() {
@@ -65,10 +76,14 @@ layui.use(['jquery', 'form'], function() {
 					
 					if(data.status === 0) {
 						$(".res-gvf").off("click").css("backgroundColor", "#cccccc");
-						var tmp = 60
+            var clickTime = new Date().getTime();
+						var tmp = 120;
 						$(".res-gvf").html(tmp + "s")
 						var setTime = setInterval(function() {
-							--tmp
+              var nowTime = new Date();
+              var realtime = parseInt((nowTime - clickTime) / 1000)
+              console.log(realtime);
+              var tmp = 120 - realtime;
 							$(".res-gvf").html(tmp + "s");
 							if(tmp <= 0) {
 								if(phoneNum.length === 11) {
@@ -151,7 +166,7 @@ layui.use(['jquery', 'form'], function() {
 					"user_Name": $('#res-phoneNum').val(),
 					"user_PassWord": psMd5_1,
 					"user_Regrist_Time": "",
-					"user_App_Type": -1,
+					"user_App_Type": 3,
 					"user_App_version": "",
 					"user_Device_Model": "",
 					"user_Device_Version": "",
@@ -183,7 +198,7 @@ layui.use(['jquery', 'form'], function() {
 								value: data.data.id
 							})
 							
-							location.href = `${context}/wechat/forwardPage/basic_info`
+							location.href = `${context}/wechat/forwardPage/basic_info?user_id`+data.data.id+'&doctor_phone='+layui.data('doctor_phone').phone;
 						
 							return true;
 						} else {

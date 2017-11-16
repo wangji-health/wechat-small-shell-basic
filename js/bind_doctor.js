@@ -28,6 +28,15 @@ layui.use(['jquery', 'form'], function() {
 			,
 			doctor_Phone = url.slice(doctorPhone_startIndex);
 
+				//患者编号弹框
+    var screenWidth = $(window).width();
+    console.log(screenWidth);
+		$('.pntId').width(screenWidth*0.752).height(screenWidth*0.752*1.23);
+
+		$('.bgBox').height(screenWidth*0.752*0.709*0.554);
+		$('.bg').width(screenWidth*0.752*0.709).height(screenWidth*0.752*0.709*0.554);
+		$('.idNum').width(screenWidth*0.752*0.709);
+    $('.thanksWordBox').width(screenWidth*0.752*0.847);
 		//获取患者
 
 		console.log(user_Id);
@@ -419,7 +428,7 @@ layui.use(['jquery', 'form'], function() {
 											console.log(data)
 											if(data.status == 0) {
 												sessionStorage.clear()
-												location.href = `${context}/wechat/forwardPage/post?user_id=`+user_Id
+												location.href = `${context}/wechat/forwardPage/post?user_id=`+user_Id + '&doctor_phone' + doctor_Phone
 											} else {
 												layer.msg(data.rspMsg)
 											}
@@ -508,7 +517,6 @@ layui.use(['jquery', 'form'], function() {
 						console.log(Main.urll(`${context}/wechat/getPatientBindDoctorWechat?patient_user_id=`) + userId + '&doctor_phone=' + '&hospital_name=' + $(this).html())
 
 						// Main.urll(`${context}/wechat/getPatientBindDoctorWechat?patient_user_id=`) + userId + '&doctor_phone=' + '&hospital_name=' + $(this).html(),
-
             $.ajax({
 							type: "get",
 							url: Main.urll(`${context}/wechat/getPatientBindDoctorWechat?patient_user_id=`) + userId + '&doctor_phone=' + '&hospital_name=' + $(this).html(),
@@ -518,12 +526,8 @@ layui.use(['jquery', 'form'], function() {
 							success: function(data) {
 
 								console.log(data);
-
-								doctorList = data
-								
-								
-								
-
+								// doctorList = data;
+								sessionStorage.doctorList = JSON.stringify(data);
 							},
 							error: function() {
 								console.log('请求失败')
@@ -551,7 +555,7 @@ layui.use(['jquery', 'form'], function() {
 							layer.msg('请先选择医院')
 							return false
 						} else {
-
+							var doctorList = JSON.parse(sessionStorage.doctorList);
 							var infection_doctor = doctorList.data.infection_doctor_list;
 
 							console.log(doctorList)
@@ -614,7 +618,7 @@ layui.use(['jquery', 'form'], function() {
 							return false
 						} else {
 
-
+              var doctorList = JSON.parse(sessionStorage.doctorList);
 							var obstetrics_doctor = doctorList.data.obstetrics_doctor_list;
 
 							console.log(doctorList)
@@ -673,7 +677,7 @@ layui.use(['jquery', 'form'], function() {
 							layer.msg('请先选择医院')
 							return false
 						} else {
-
+              var doctorList = JSON.parse(sessionStorage.doctorList);
 
 							var pediatrics_doctor = doctorList.data.pediatrics_doctor_list;
 
@@ -779,13 +783,13 @@ layui.use(['jquery', 'form'], function() {
 
 						// var url = 'http://localhost:8080/wechat-web/wechat/addBindDoctorWechat?doctor_user_id_list=' + doctor_list() + '&patient_user_id=' + userId;
 
-						var url = Main.urll(`${context}/wechat-web/wechat/addBindDoctorWechat?doctor_user_id_list=`) + doctor_list() + '&patient_user_id=' + userId;
+						var url = Main.urll(`${context}/wechat/addBindDoctorWechat?doctor_user_id_list=`) + doctor_list() + '&patient_user_id=' + userId;
 						if(isChoseInfect() || isChoseBirth() || isChoseBirth()) {
 
 							console.log(url)
 
 							$.ajax({
-								type: "post",
+								type: "get",
 								url: url,
 								dataType: 'json',
 								contentType: 'application/json;charset=utf-8',
@@ -793,7 +797,11 @@ layui.use(['jquery', 'form'], function() {
 									console.log(data)
 									if(data.status == 0) {
 										sessionStorage.clear()
-										location.href = `${context}/wechat/forwardPage/post?user_id=`+user_Id
+										$('.sOrH').show();
+										$('.realNum').text(data.data);
+										$('.close').on('click',function () {
+                      location.href = `${context}/wechat/forwardPage/post?user_id=`+user_Id+'&doctor_phone='+doctor_phone
+                    })
 									} else {
 										layer.msg(data.rspMsg)
 									}
