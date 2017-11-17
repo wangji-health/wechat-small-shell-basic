@@ -79,10 +79,25 @@ layui.use('jquery', function() {
 		$('#startInput').val($('#have').val())
 	})
 
-	//监听结束服用日期
-	$('#endhave').on('change', function() {
-		$('#endInput').val($('#endhave').val())
-	})
+  //监听结束服用日期
+  $('#endhave').on('change', function() {
+    $('#endInput').val($('#endhave').val())
+  })
+
+  //结束服用日期弹出框
+  $('.cancel').on('click',function () {
+    $('.delBox1').hide()
+  })
+  $('.inYes').on('click',function () {
+    $('#endInput').val('至今');
+    $('.delBox1').hide()
+  });
+  $('.inNo').on('click',function () {
+    $('.delBox1').hide()
+  });
+  $('#fendInput').on('click',function () {
+    $('.delBox1').show()
+  })
 
 	//渲染记录
 

@@ -22,30 +22,15 @@ layui.use(['jquery', 'form'], function () {
 
     console.log(user_id);
 
-    $('.date').on('focus', function () {
-      $('.date').attr({
-        type: 'date',
-        placeholder: ""
-      })
-    })
-
-    $('.Mdate').on('focus', function () {
-      $('.Mdate').attr({
-        type: 'date',
-        placeholder: ""
-      })
-    })
-
-    $('.MMdate').on('focus', function () {
-      $('.MMdate').attr({
-        type: 'date',
-        placeholder: ""
-      })
+    $('.MMdate').on('change', function () {
+      $('.realMMdate').val($('.MMdate').val())
     })
 
     //计算器
 
     $('.Mdate').on("change", function () {
+
+      $('.realDate').val($('.Mdate').val());
 
       console.log($('.Mdate').val());
 
@@ -108,7 +93,7 @@ layui.use(['jquery', 'form'], function () {
 
       $('#sure').on('click', function () {
 
-        $('.MMdate').val(year + '-' + month + '-' + date);
+        $('.realMMdate').val(year + '-' + month + '-' + date);
 
         $('.layerDiy_box').css('display', 'none');
 
@@ -121,12 +106,6 @@ layui.use(['jquery', 'form'], function () {
       //						console.log(console.log(real_date))
     })
 
-    $('#birth_time').on('focus', function () {
-      $('#birth_time').attr({
-        type: 'time',
-        placeholder: ""
-      })
-    })
 
     $('.close').on('click', function () {
       $('.layerDiy_box').hide()

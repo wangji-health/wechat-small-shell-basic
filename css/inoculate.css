@@ -147,7 +147,8 @@ input[type=text] {
   height: 3.375rem;
   border: none;
   position: absolute;
-  display: block; }
+  display: block;
+  color: #8c959f; }
 
 .dier {
   display: none; }

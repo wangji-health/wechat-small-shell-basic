@@ -235,11 +235,33 @@ input[type="date"]::-webkit-clear-button {
     right: 5%;
     top: 0;
     z-index: 2;
-    opacity: 0; }
+    opacity: 1; }
   .estimate_time #realBirth_time {
     position: absolute;
     z-index: 1;
     opacity: 1; }
+
+#fbirth_time {
+  -webkit-appearance: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  right: 5%;
+  top: 0;
+  z-index: 2;
+  opacity: 0;
+  background-color: green; }
+
+.neTime {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 0; }
 
 .layerDiy_box {
   width: 100%;
@@ -371,5 +393,79 @@ input[type="date"]::-webkit-clear-button {
 
   .isPregnant {
     padding: 0.4rem 0; } }
+.delBox {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(41, 44, 52, 0.5);
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  display: none; }
+
+.middle {
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.del_t {
+  width: 88%;
+  height: 12rem;
+  background-color: #FFFFFF;
+  border-radius: 5px; }
+
+.del_record {
+  padding: 1.5rem 9% 2rem;
+  text-align: center;
+  width: 82%;
+  font-size: 1.1rem;
+  border-radius: 5px; }
+
+.cha {
+  height: 1.5rem;
+  width: 100%;
+  text-align: right; }
+  .cha .cancel {
+    height: 1rem !important;
+    width: 1rem;
+    margin: 0.5rem 0.5rem 0 0;
+    border: none; }
+
+.sure_b {
+  width: 90%;
+  height: 3rem;
+  margin: auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between; }
+
+.inYes {
+  width: 45%;
+  height: 3rem;
+  background: #52c8fd;
+  text-align: center;
+  line-height: 3rem;
+  color: #FFFFFF;
+  font-size: 1rem;
+  border-radius: 5px;
+  position: relative; }
+
+.inNo {
+  width: 45%;
+  height: calc(100% - 4px);
+  text-align: center;
+  line-height: 2.8rem;
+  font-size: 1rem;
+  border: 2px solid #e4e7ef;
+  border-radius: 5px;
+  position: relative; }
 
 /*# sourceMappingURL=basic_info.css.map */

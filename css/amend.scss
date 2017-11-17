@@ -131,7 +131,14 @@ input[type=text] {
 #endInput {
     @extend #startInput;
 }
-
+#fendInput{
+    @extend #endInput;
+    display: inline-block;
+    //background-color: red;
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+}
 .endDate {
     @extend .startDate;
 }
@@ -174,7 +181,7 @@ input[type=text] {
 
 .del{
     width: 48.5%;
-    height: calc(100%-2px);
+    height: calc(100% - 2px);
     background-color: #FFFFFF;
     text-align: center;
     border: 1px solid rgb(212,217,218);
@@ -185,7 +192,7 @@ input[type=text] {
 
 .save{
     width: 48.5%;
-    height: calc(100%-2px);
+    height: calc(100% - 2px);
     background-color: rgb(82,200,253);
     text-align: center;
     border: 1px solid rgb(212,217,218);
@@ -351,7 +358,7 @@ input[type=text] {
 
 .cancel {
     @extend .sure;
-    width: calc(48%-2px);
+    width: calc(48% - 2px);
     height: 3rem;
     background-color: #FFFFFF;
     border: 1px solid rgba(41, 44, 52, 0.5);
@@ -443,7 +450,7 @@ input[type=text] {
 
 .del_del{
     width: 45%;
-    height: calc(100%-4px);
+    height: calc(100% - 4px);
 //  background: greenyellow;
     text-align: center;
     line-height: 2.8rem;
@@ -491,4 +498,91 @@ input[type=text] {
         margin-top: -165px;
         z-index: 10000;
     }
+}
+.delBox1{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(41,44,52,0.5);
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    display: none;
+}
+
+.middle1{
+    height: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.del_t1{
+    width: 88%;
+    height: 12rem;
+    background-color: #FFFFFF;
+    border-radius:5px ;
+}
+
+.del_record1{
+    //  background-color: pink;
+    padding: 1.5rem 9% 2rem;
+    text-align: center;
+    width: 82%;
+    font-size: 1.1rem;
+    border-radius:5px ;
+}
+
+.cha{
+    height: 1.5rem;
+    width: 100%;
+    //background-color: yellow;
+    text-align: right;
+    .cancel{
+        height: 1rem!important;
+        width: 1rem;
+        margin:0.5rem 0.5rem 0 0;
+        border: none;
+    }
+}
+
+.sure_b1{
+    width: 90%;
+    height: 3rem;
+    //background-color: aquamarine;
+    margin: auto;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+}
+
+.inYes{
+    width: 45%;
+    height: 3rem;
+    background: rgb(82,200,253);
+    text-align: center;
+    line-height: 3rem;
+    color: #FFFFFF;
+    font-size: 1rem;
+    border-radius: 5px;
+    position: relative;
+}
+
+.inNo{
+    width: 45%;
+    height: calc(100% - 4px);
+    //  background: greenyellow;
+    text-align: center;
+    line-height: 2.8rem;
+    font-size: 1rem;
+    border: 2px solid rgb(228,231,239);
+    border-radius: 5px;
+    position: relative;
 }

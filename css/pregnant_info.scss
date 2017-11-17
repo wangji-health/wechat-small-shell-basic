@@ -26,6 +26,8 @@ html {
     border-bottom: 1px solid rgb( 228, 228, 228);
     border-top: 1px solid rgb( 228, 228, 228);
     background-color: #FFFFFF;
+    //background-color: red;
+    position: relative;
 }
 
 .n-name {
@@ -109,7 +111,15 @@ input[type="date"]::-webkit-clear-button {
     @include date;
     width: 45%;
     height: 100%;
-//  background-color: yellowgreen;  
+  //background-color: yellowgreen;
+}
+.realMMdate{
+    text-align: center;
+    //background-color: pink;
+    position: absolute;
+    left: 25%;
+    top:0;
+    z-index: 10;
 }
 
 .layerDiy_box{
@@ -230,13 +240,28 @@ input[type="date"]::-webkit-clear-button {
             }
             .willBirth_right {
                 -webkit-appearance: none;
-                width: 35%;
+                width: 38%;
                 padding-left: 10%;
                 text-align: right;
                 height: 3.3rem;
                 border-radius: 0;
                 border: 0;
+                //background-color: red;
+                position: absolute;
+                opacity: 0!important;
+                top: 0;
+                left: 48%;
+                z-index: 10;
                 //              background: red;
+            }
+            .realDate{
+                @extend .willBirth_right;
+                //background-color: green;
+                width: 33%;
+                top: 0;
+                left: 48%;
+                opacity: 1!important;
+                z-index: 1;
             }
         }
         .pro {

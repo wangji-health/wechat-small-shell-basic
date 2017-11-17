@@ -80,11 +80,11 @@ layui.use(['jquery', 'form'], function() {
 			var babyData = {
 				"extend_Id": "",
 				"first_Baby_Height": $('#height').val(),
-				"first_Baby_Weight": $('#weight').val(),
+				"first_Baby_Weight": $('#weight').val()*50+$('#weightt').val()*500,
 				"second_Baby_Height": $('#height2').val(),
-				"second_Baby_Weight": $('#weight2').val(),
+				"second_Baby_Weight": $('#weight2').val()*50+$('#weightt2').val()*500,
 				"third_Baby_Height": $('#height3').val(),
-				"third_Baby_Weight": $('#weight3').val(),
+				"third_Baby_Weight": $('#weight3').val()*50+$('#weightt3').val()*500,
 				"user_Id": user_Id
 			}
 

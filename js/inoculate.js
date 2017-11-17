@@ -35,9 +35,9 @@ $('.hasB').on('click',function () {
 	})
 
 	//获取user_id
-	var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
+	// var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
 
-		// var url = location.href,
+		var url = location.href,
 
 		userId_startIndex = url.indexOf('user_id=') + 8,
 

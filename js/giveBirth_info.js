@@ -129,8 +129,8 @@ layui.use(['jquery', 'form'], function() {
 
 //
 
-	$(document).on('keyup', function() {
-		if($('#date').val()&&$('#time').val()&&$('#height').val()&&$('#weight').val()) {
+  $('#date').on('change', function() {
+		if($('#date').val()&&$('#time').val()) {
 			$('.save').off('click');
 			$('.save').css('backgroundColor', '#52c8fd').on('click', postBabyInfo)
 		} else {
@@ -138,11 +138,45 @@ layui.use(['jquery', 'form'], function() {
 		}
 	});
 
+  $('#time').on('change', function() {
+		if($('#date').val()&&$('#time').val()) {
+			$('.save').off('click');
+			$('.save').css('backgroundColor', '#52c8fd').on('click', postBabyInfo)
+		} else {
+			$('.save').css('backgroundColor', '#d4d9da').off('click');
+		}
+	});
+	// $(document).on('keyup', function() {
+	// 	if($('#date').val()&&$('#time').val()) {
+	// 		alert(123)
+	// 		$('.save').off('click');
+	// 		$('.save').css('backgroundColor', '#52c8fd').on('click', postBabyInfo)
+	// 	} else {
+	// 		$('.save').css('backgroundColor', '#d4d9da').off('click');
+	// 	}
+	// });
+
 //	"delivery_Time": $('#time').val(),
 	//	$('.save').on('click', postBabyInfo)
+	//是否记得时间
+  $('.cancel').on('click',function () {
+    $('.delBox').hide()
+  });
+  $('.inYes').on('click',function () {
+    $('.birth_time').text('未知');
+    $('.delBox').hide()
+  });
+  $('.inNo').on('click',function () {
+    $('.delBox').hide()
+  });
+  $('.birth_time').on('click',function () {
+    $('.delBox').show()
+  })
 
 	function postBabyInfo() {
-
+		if(!sessionStorage.babyNum){
+      sessionStorage.babyNum = 1
+		}
 		var medicine_url = Main.urll('/wechat-web/wechat/addMyBabyDrugUseInfoExtend')
 
 		var babyInfo = {

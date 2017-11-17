@@ -311,7 +311,20 @@ layui.use(['jquery', 'form'], function () {
         return false
       }
     }
-
+    //是否知晓分娩时间
+    $('.cancel').on('click',function () {
+      $('.delBox').hide()
+    });
+    $('.inYes').on('click',function () {
+      $('#realBirth_time').val('未知');
+      $('.delBox').hide()
+    });
+    $('.inNo').on('click',function () {
+      $('.delBox').hide()
+    });
+    $('#fbirth_time').on('click',function () {
+      $('.delBox').show()
+    })
     //上传头像
     $('#photo').on('click', function () {
       console.log('wxUrl:'+wxUrl);
@@ -418,7 +431,7 @@ layui.use(['jquery', 'form'], function () {
       var _data = {
           "birth_Date": $('#date').val(),
           "delivery_day": $('.MMMdate').val(),
-          "delivery_time": $('#birth_time').val(),
+          "delivery_time": $('#realBirth_time').val(),
           "full_Name": $('#real-name').val(),
           "id_Number": $('.id_Num').val(),
           "info_Id": "",

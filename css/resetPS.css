@@ -9,6 +9,9 @@ a {
   margin: 0;
   padding: 0; }
 
+a {
+  color: #589ced; }
+
 a:hover, a:visited, a:link, a:active {
   text-decoration: none;
   color: #589ced; }

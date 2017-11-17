@@ -89,6 +89,21 @@ layui.use('jquery', function() {
 		$('#endInput').val($('#endhave').val())
 	})
 
+	//结束服用日期弹出框
+	$('.cancel').on('click',function () {
+		$('.delBox').hide()
+  })
+	$('.inYes').on('click',function () {
+		$('#endInput').val('至今');
+    $('.delBox').hide()
+  });
+  $('.inNo').on('click',function () {
+    $('.delBox').hide()
+  });
+	$('#fendInput').on('click',function () {
+    $('.delBox').show()
+  })
+
 	//检测文档的点击事件控制saveButton
 
 	$(document).on('click', function() {

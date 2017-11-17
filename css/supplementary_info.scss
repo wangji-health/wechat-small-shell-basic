@@ -103,7 +103,8 @@ input {
 }
 
 .g {
-    @extend .cm
+    @extend .cm;
+    margin-right: 1rem;
 }
 
 #tall {
@@ -343,4 +344,13 @@ label {
             line-height: 1rem;
         }
     }
+}
+#weightt{
+    @extend #weight;
+}
+#weightt3{
+    @extend #weight3;
+}
+#weightt2{
+    @extend #weight2;
 }

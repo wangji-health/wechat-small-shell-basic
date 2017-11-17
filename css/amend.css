@@ -65,7 +65,7 @@ input[type=text] {
 .line {
   border-top: 1px solid #f0f0f0; }
 
-#startInput, #endInput {
+#startInput, #endInput, #fendInput {
   width: 95%;
   padding-right: 5%;
   height: 3.375rem;
@@ -93,6 +93,12 @@ input[type=text] {
   width: 200px;
   height: 3.375rem;
   background-color: #FFFFFF; }
+
+#fendInput {
+  display: inline-block;
+  position: absolute;
+  z-index: 10;
+  opacity: 0; }
 
 .m_box {
   width: 90%;
@@ -141,7 +147,7 @@ input[type=text] {
 
 .del {
   width: 48.5%;
-  height: calc(100%-2px);
+  height: calc(100% - 2px);
   background-color: #FFFFFF;
   text-align: center;
   border: 1px solid #d4d9da;
@@ -151,7 +157,7 @@ input[type=text] {
 
 .save {
   width: 48.5%;
-  height: calc(100%-2px);
+  height: calc(100% - 2px);
   background-color: #52c8fd;
   text-align: center;
   border: 1px solid #d4d9da;
@@ -263,7 +269,7 @@ input[type=text] {
   color: #FFFFFF; }
 
 .cancel {
-  width: calc(48%-2px);
+  width: calc(48% - 2px);
   height: 3rem;
   background-color: #FFFFFF;
   border: 1px solid rgba(41, 44, 52, 0.5);
@@ -341,7 +347,7 @@ input[type=text] {
 
 .del_del {
   width: 45%;
-  height: calc(100%-4px);
+  height: calc(100% - 4px);
   text-align: center;
   line-height: 2.8rem;
   font-size: 1rem;
@@ -378,5 +384,79 @@ input[type=text] {
     margin-left: -177px;
     margin-top: -165px;
     z-index: 10000; } }
+.delBox1 {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(41, 44, 52, 0.5);
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  display: none; }
+
+.middle1 {
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.del_t1 {
+  width: 88%;
+  height: 12rem;
+  background-color: #FFFFFF;
+  border-radius: 5px; }
+
+.del_record1 {
+  padding: 1.5rem 9% 2rem;
+  text-align: center;
+  width: 82%;
+  font-size: 1.1rem;
+  border-radius: 5px; }
+
+.cha {
+  height: 1.5rem;
+  width: 100%;
+  text-align: right; }
+  .cha .cancel {
+    height: 1rem !important;
+    width: 1rem;
+    margin: 0.5rem 0.5rem 0 0;
+    border: none; }
+
+.sure_b1 {
+  width: 90%;
+  height: 3rem;
+  margin: auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between; }
+
+.inYes {
+  width: 45%;
+  height: 3rem;
+  background: #52c8fd;
+  text-align: center;
+  line-height: 3rem;
+  color: #FFFFFF;
+  font-size: 1rem;
+  border-radius: 5px;
+  position: relative; }
+
+.inNo {
+  width: 45%;
+  height: calc(100% - 4px);
+  text-align: center;
+  line-height: 2.8rem;
+  font-size: 1rem;
+  border: 2px solid #e4e7ef;
+  border-radius: 5px;
+  position: relative; }
 
 /*# sourceMappingURL=amend.css.map */
