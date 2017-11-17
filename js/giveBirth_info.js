@@ -44,12 +44,12 @@ layui.use(['jquery', 'form'], function() {
 			$('.baby_infoBox').text('宝宝信息')
 		} else if($(this).index() == 1) {
 			console.log('选择的是双胞胎');
-			$('#baby2').show();
+			$('#baby2').show().css('marginBottom',100);
 			$('#baby3').hide();
 			$('.baby_infoBox').text('宝宝1信息')
 		} else if($(this).index() == 2) {
 			console.log('选择的是三胞胎')
-			$('#baby2').show();
+			$('#baby2').show().css('marginBottom',0);
 			$('#baby3').show();
 			$('.baby_infoBox').text('宝宝1信息')
 		}
@@ -130,7 +130,7 @@ layui.use(['jquery', 'form'], function() {
 //
 
   $('#date').on('change', function() {
-		if($('#date').val()&&$('#time').val()) {
+		if($('#date').val()&&($('#time').val() || $('.birth_time').text() == '未知')) {
 			$('.save').off('click');
 			$('.save').css('backgroundColor', '#52c8fd').on('click', postBabyInfo)
 		} else {
@@ -146,6 +146,17 @@ layui.use(['jquery', 'form'], function() {
 			$('.save').css('backgroundColor', '#d4d9da').off('click');
 		}
 	});
+
+  $('.inYes').on('click',function () {
+    $('.birth_time').text('未知');
+    $('.delBox').hide();
+    if($('#date').val()&&$('.birth_time').text() == '未知') {
+      $('.save').off('click');
+      $('.save').css('backgroundColor', '#52c8fd').on('click', postBabyInfo)
+    } else {
+      $('.save').css('backgroundColor', '#d4d9da').off('click');
+    }
+  })
 	// $(document).on('keyup', function() {
 	// 	if($('#date').val()&&$('#time').val()) {
 	// 		alert(123)
@@ -162,10 +173,7 @@ layui.use(['jquery', 'form'], function() {
   $('.cancel').on('click',function () {
     $('.delBox').hide()
   });
-  $('.inYes').on('click',function () {
-    $('.birth_time').text('未知');
-    $('.delBox').hide()
-  });
+
   $('.inNo').on('click',function () {
     $('.delBox').hide()
   });
@@ -178,11 +186,12 @@ layui.use(['jquery', 'form'], function() {
       sessionStorage.babyNum = 1
 		}
 		var medicine_url = Main.urll('/wechat-web/wechat/addMyBabyDrugUseInfoExtend')
-
+		var bb2 =  $('#weight2').val()*50+$('#weightt2').val()*500 == 0 ? "" : $('#weight2').val()*50+$('#weightt2').val()*500;
+		var bb3 =  $('#weight3').val()*50+$('#weightt3').val()*500 == 0 ? "" : $('#weight3').val()*50+$('#weightt3').val()*500;
 		var babyInfo = {
 			"baby_Number": sessionStorage.babyNum,
 			"delivery_Day": $('#date').val(),
-			"delivery_Time": $('#time').val(),
+			"delivery_Time": $('.birth_time').text(),
 			"extend_Id": "",
 			"first_Baby_Have_Physiological_Defect": sessionStorage.baby1Defect,
 			"first_Baby_Height": $('#height').val(),
@@ -191,11 +200,11 @@ layui.use(['jquery', 'form'], function() {
 			"second_Baby_Have_Physiological_Defect": sessionStorage.baby2Defect,
 			"second_Baby_Height": $('#height2').val(),
 			"second_Baby_Physiological_Defect": $('#sickName2').val(),
-			"second_Baby_Weight": $('#weight2').val()*50+$('#weightt2').val()*500,
+			"second_Baby_Weight": bb2,
 			"third_Baby_Have_Physiological_Defect": sessionStorage.baby3Defect,
 			"third_Baby_Height": $('#height3').val(),
 			"third_Baby_Physiological_Defect": $('#sickName3').val(),
-			"third_Baby_Weight": $('#weight3').val()*50+$('#weightt3').val()*500,
+			"third_Baby_Weight": bb3,
 			"user_Id": user_Id
 		};
 		// console.log(JSON.stringify(babyInfo))

@@ -27,11 +27,11 @@ layui.use(['jquery', 'form'], function() {
 				console.log(data);
 
 				console.log(data.data)
-				if(data.data == 1) {
+				if(data.data == 1 || data.data == 0) {
 					$('#baby2').hide();
 					$('#baby3').hide();
 					$(document).on('input', function() {
-						if($('#height').val() && $('#weight').val()) {
+						if($('#height').val() && $('#weight').val() && $('#weightt').val()) {
 							$('.save').css('backgroundColor', '#52c8fd').on('click', function() {
 								$('.confirm').show()
 							})
@@ -45,7 +45,7 @@ layui.use(['jquery', 'form'], function() {
 					$('#baby3').hide();
 
 					$(document).on('input', function() {
-						if($('#height').val() && $('#weight').val() && $('#height2').val() && $('#weight2').val()) {
+						if($('#height').val() && $('#weight').val()&& $('#weightt').val() && $('#height2').val() && $('#weight2').val()&& $('#weightt2').val()) {
 							$('.save').css('backgroundColor', '#52c8fd').on('click', function() {
 								$('.confirm').show()
 							})
@@ -58,7 +58,7 @@ layui.use(['jquery', 'form'], function() {
 					$('#baby2').show();
 					$('#baby3').show();
 					$(document).on('input', function() {
-						if($('#height').val() && $('#weight').val() && $('#height2').val() && $('#weight2').val() && $('#height3').val() && $('#weight3').val()) {
+						if($('#height').val() && $('#weight').val()&& $('#weightt').val() && $('#height2').val() && $('#weight2').val()&& $('#weightt2').val() && $('#height3').val() && $('#weight3').val()&& $('#weightt3').val()) {
 							$('.save').css('backgroundColor', '#52c8fd').on('click', function() {
 								$('.confirm').show()
 							})
@@ -76,22 +76,23 @@ layui.use(['jquery', 'form'], function() {
 		//确认框
 
 		$('.del_cancel').on('click', function() {
-
+      var bb2 =  $('#weight2').val()*50+$('#weightt2').val()*500 == 0 ? "" : $('#weight2').val()*50+$('#weightt2').val()*500;
+      var bb3 =  $('#weight3').val()*50+$('#weightt3').val()*500 == 0 ? "" : $('#weight3').val()*50+$('#weightt3').val()*500;
 			var babyData = {
 				"extend_Id": "",
 				"first_Baby_Height": $('#height').val(),
 				"first_Baby_Weight": $('#weight').val()*50+$('#weightt').val()*500,
 				"second_Baby_Height": $('#height2').val(),
-				"second_Baby_Weight": $('#weight2').val()*50+$('#weightt2').val()*500,
+				"second_Baby_Weight": bb2,
 				"third_Baby_Height": $('#height3').val(),
-				"third_Baby_Weight": $('#weight3').val()*50+$('#weightt3').val()*500,
+				"third_Baby_Weight": bb3,
 				"user_Id": user_Id
-			}
+			};
 
-			var rel_data = JSON.stringify(babyData)
-			console.log(babyData)
+			var rel_data = JSON.stringify(babyData);
+			console.log(babyData);
 
-			$('.confirm').hide()
+			$('.confirm').hide();
 
 			$.ajax({
 				type: "post",
@@ -103,14 +104,14 @@ layui.use(['jquery', 'form'], function() {
 				success: function(data) {
 					console.log(data);
 					if(data.status==0){
-						location.href = `${context}/wechat/forwardPage/post?user_id=`+user_Id;
+						location.href = `${context}/wechat/forwardPage/post?user_id=`+user_Id + '&doctor_phone=';
 					}
 				},
 				error: function() {
 					console.log(data)
 				}
 			});
-		})
+		});
 
 		$('.del_del').on('click', function() {
 			$('.confirm').hide()
@@ -118,4 +119,4 @@ layui.use(['jquery', 'form'], function() {
 
 	})
 
-})
+});

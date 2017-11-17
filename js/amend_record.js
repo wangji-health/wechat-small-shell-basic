@@ -123,14 +123,20 @@ layui.use('jquery', function() {
 
 	$('#endInput').val(end_time);
 
-	var medicine_url = Main.urll('/wechat-web/wechat/editMyDrugUseInfoExtend')
+
+  var medicine_url = Main.urll('/wechat-web/wechat/editMyDrugUseInfoExtend');
 
 	//修改保存
+
 	$('.save').on('click', function() {
+
+    var entTime = $('#endInput').val() == '至今' ? "" : $('#endInput').val();
+
+    console.log(entTime);
 
 		var re_data = {
 			"dose": "",
-			"end_Time": $('#endInput').val(),
+			"end_Time": entTime,
 			"extend_Id": choose_medicine.extend_Id,
 			"name": $('.m_choose').text(),
 			"start_Time": $('#startInput').val(),
@@ -150,7 +156,7 @@ layui.use('jquery', function() {
 			contentType: 'application/json;charset=utf-8',
 			success: function(data) {
 				console.log(data);
-				location.href = `${context}/wechat/forwardPage/antivirus?user_id=` + user_Id;
+				// location.href = `${context}/wechat/forwardPage/antivirus?user_id=` + user_Id;
 			},
 			error: function() {
 				console.log(data)

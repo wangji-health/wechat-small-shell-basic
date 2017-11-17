@@ -6,16 +6,25 @@ layui.use(['jquery', 'form'], function() {
 		
 	$().ready(function() {
 		//判断补充基本信息
-
+		//阻止缓存
+    window.onpageshow = function(e) {
+      if(e.persisted) {
+        location.reload()
+      }
+    };
 		var url = location.href
       ,
       userId_startIndex = url.indexOf('user_id=') + 8
       ,
       userId_endIndex = url.indexOf("&")
       ,
-      user_Id = url.slice(userId_startIndex, userId_endIndex);
-
+      user_Id = url.slice(userId_startIndex, userId_endIndex)
+			,
+      doctorPhone_startIndex = url.indexOf('doctor_phone=') + 13
+      ,
+      doctor_Phone = url.slice(doctorPhone_startIndex);
     console.log(user_Id);
+    console.log(doctor_Phone);
     //
 		var basic_urll = `${context}/wechat/getPatientInfo/` + user_Id;
 		// var basic_urll = `${context}/wechat/getPatientInfo/` + '171109064351794189';
@@ -38,11 +47,14 @@ layui.use(['jquery', 'form'], function() {
 					// alert('该用户还未注册过，请填写信息')
 					return true;
 				} else if(user) {
-					
-					
-					if(user.full_Name && user.birth_Date && user.nation && user.is_Hepatitis && user.pregnant_Status){
+					if(user.is_Hepatitis == 0){
+            location.href = `${context}/wechat/forwardPage/thanks`;
+					}
+					else if(user.pregnant_Status == 0){
+            location.href = `${context}/wechat/forwardPage/post?user_id=` + user_Id + '&doctor_phone='+doctor_Phone;
+					}else if(user.full_Name && user.birth_Date && user.nation && user.is_Hepatitis && user.pregnant_Status){
 						
-						location.href = `${context}/wechat/forwardPage/bind_doctor`
+						location.href = `${context}/wechat/forwardPage/bind_doctor?user_id=`+ user_Id + '&doctor_phone='+doctor_Phone;
 
 					}
 					

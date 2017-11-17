@@ -98,17 +98,12 @@ label {
 .point {
   margin-top: 2.5rem;
   width: 100%;
-  height: 0.9rem;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  justify-content: center; }
+  height: 0.9rem; }
   .point .star {
     width: 0.9rem;
     height: 0.9rem;
-    float: left; }
+    float: left;
+    margin-left: 20px; }
     .point .star img {
       width: 100%;
       height: 100%;

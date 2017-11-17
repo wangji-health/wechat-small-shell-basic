@@ -147,7 +147,7 @@ layui.use(['jquery', 'form'], function () {
         "info_Photo": "",
         "is_Hepatitis": "",
         "is_Pregnant": "",
-        "last_Menstruation_Date": $('.MMdate').val(),
+        "last_Menstruation_Date": $('.realMMdate').val(),
         "nation": "",
         "phone": "",
         "pregnant_Status": "",

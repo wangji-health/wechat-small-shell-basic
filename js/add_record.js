@@ -147,9 +147,11 @@ layui.use('jquery', function() {
 		var medicine_url = Main.urll(`${context}/wechat/addMyDrugUseInfoExtend`);
 		console.log(medicine_url);
 
+		var entTime = $('#endInput').val() == '至今' ? "" : $('#endInput').val();
+
 		var re_data = {
 			"dose": "",
-			"end_Time": $('#endInput').val(),
+			"end_Time": entTime,
 			"extend_Id": "",
 			"name": $('.m_choose').text(),
 			"start_Time": $('#startInput').val(),

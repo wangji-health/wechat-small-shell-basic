@@ -10,6 +10,13 @@ layui.use(['jquery', 'form'], function () {
 
   $().ready(function () {
 
+    //阻止缓存
+    window.onpageshow = function(e) {
+      if(e.persisted) {
+        location.reload()
+      }
+    };
+
     var url = location.href
 
       // var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/?user_id=170908101424883232&doctor_phone=6c0b513bb1c751a19ac6465b9db837e9'
@@ -256,7 +263,7 @@ layui.use(['jquery', 'form'], function () {
 
     //判断民族的返回值
     function isChoseNation() {
-      for (var i = 0; i <= 1; i++) {
+      for (var i = 0; i <= 2; i++) {
         if ($('.nation').eq(i).prop('checked')) {
           return i
         }
@@ -428,6 +435,14 @@ layui.use(['jquery', 'form'], function () {
         var photoUrl = JSON.parse(sessionStorage.photo);
         sessionStorage.removeItem('photo');
       }
+      if($('.id_Num').val()){
+        var num = $('.id_Num').val().toUpperCase();
+        if(!(/(^\d{15}$)|(^\d{17}([0-9]|X)$)/.test(num)))     {
+          layer.msg('请输入正确的身份证信息');
+          return false;
+        }
+      }
+
       var _data = {
           "birth_Date": $('#date').val(),
           "delivery_day": $('.MMMdate').val(),
@@ -438,7 +453,7 @@ layui.use(['jquery', 'form'], function () {
           "info_Photo": photoUrl,
           "is_Hepatitis": Number(isH),
           "is_Pregnant": "",
-          "last_Menstruation_Date": $('.MMdate').val(),
+          "last_Menstruation_Date": $('.realMMdate' ).val(),
           "nation": nation,
           "phone": "",
           "pregnant_Status": isPregnant,
