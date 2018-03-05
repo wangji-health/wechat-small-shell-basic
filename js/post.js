@@ -25,7 +25,10 @@ layui.use('jquery', function () {
       contentType: 'application/json;charset=utf-8',
       success: function (data) {
         console.log(data);
-
+        if(data.status != 0){
+          layer.msg(data.rspMsg);
+          return false
+        }
         var babyNumber = data.data;
 
         if (babyNumber != 0) {
@@ -64,7 +67,11 @@ layui.use('jquery', function () {
       contentType: 'application/json;charset=utf-8',
       success: function (data) {
 
-        console.log(data)
+        console.log(data);
+        if(data.status != 0){
+          layer.msg(data.rspMsg);
+          return false
+        }
 
         var user = data.data;
 

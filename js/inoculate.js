@@ -55,6 +55,10 @@ layui.use(['jquery', 'laydate'], function () {
     contentType: 'application/json;charset=utf-8',
     success: function (data) {
       console.log(data);
+      if(data.status != 0){
+        layer.msg(data.rspMsg);
+        return false
+      }
 
       var baby_number = data.data;
 
@@ -396,6 +400,9 @@ layui.use(['jquery', 'laydate'], function () {
 
         if (data.status == 0) {
           location.href = `${context}/wechat/forwardPage/post?user_id=` + user_Id+'&doctor_phone=';
+        }else{
+          layer.msg(data.rspMsg);
+          return false
         }
       },
       error: function () {
@@ -413,7 +420,10 @@ layui.use(['jquery', 'laydate'], function () {
     dataType: 'json',
     contentType: 'application/json;charset=utf-8',
     success: function (data) {
-
+      if(data.status !=0){
+        layer.msg(data.rspMsg);
+        return false
+      }
       console.log(data);
       $('#hepatitisT').val(data.data[0].first_Inoculated_HBV_Day);
       $('#immunoglobulinT').val(data.data[0].first_Inoculated_HBIG_Day);

@@ -174,6 +174,9 @@ layui.use('jquery', function() {
 				console.log(data);
 				if(data.status ==0){
 					location.href = `${context}/wechat/forwardPage/antivirus?user_id=` + user_Id;
+				}else{
+					layer.msg(data.rspMsg);
+					return false
 				}
 			},
 			error: function() {

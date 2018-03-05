@@ -15,7 +15,20 @@ layui.use(['jquery', 'form'], function() {
 			// location.href = 'location.href = `${context}/wechat/forwardPage/protocol';
       location.href = `${context}/wechat/html_inline/protocol.html`;
     });
+		//获取手机号码
+    var url = location.href;
 
+    var doctor_phoneIndex = url.indexOf('doctor_phone=');
+
+    console.log(url[doctor_phoneIndex+13]);
+
+    var andIndx = url.indexOf('&');
+
+    console.log(url[andIndx])
+
+    var doctor_phone = url.slice(doctor_phoneIndex+13,andIndx);
+
+    console.log(doctor_phone)
 
     var lightHeight = $('.hgt').height();
     var lightWidth = lightHeight/1.185;
@@ -82,7 +95,7 @@ layui.use(['jquery', 'form'], function() {
 						var setTime = setInterval(function() {
               var nowTime = new Date();
               var realtime = parseInt((nowTime - clickTime) / 1000)
-              console.log(realtime);
+              // console.log(realtime);
               var tmp = 120 - realtime;
 							$(".res-gvf").html(tmp + "s");
 							if(tmp <= 0) {
@@ -196,9 +209,9 @@ layui.use(['jquery', 'form'], function() {
 							layui.data('userData', {
 								key: 'user2',
 								value: data.data.id
-							})
-							
-							location.href = `${context}/wechat/forwardPage/basic_info?user_id`+data.data.id+'&doctor_phone='+layui.data('doctor_phone').phone;
+							});
+							// console.log(`${context}/wechat/forwardPage/basic_info?user_id=`+data.data.id+'&doctor_phone='+doctor_phone);
+							location.href = `${context}/wechat/forwardPage/basic_info?user_id=`+data.data.id+'&doctor_phone='+doctor_phone;
 						
 							return true;
 						} else {

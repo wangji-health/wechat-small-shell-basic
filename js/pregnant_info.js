@@ -25,9 +25,7 @@ layui.use(['jquery', 'form'], function () {
     $('.MMdate').on('change', function () {
       $('.realMMdate').val($('.MMdate').val())
     })
-
     //计算器
-
     $('.Mdate').on("change", function () {
 
       $('.realDate').val($('.Mdate').val());
@@ -167,7 +165,8 @@ layui.use(['jquery', 'form'], function () {
           if (data.status == 0) {
             location.href = `${context}/wechat/forwardPage/bind_doctor?user_id=` + user_id +'&doctor_phone=' + doctor_phone
           } else {
-            layer.msg(data.rspMsg)
+            layer.msg(data.rspMsg);
+            return false
           }
         },
         error: function (data) {

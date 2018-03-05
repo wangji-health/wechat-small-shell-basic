@@ -66,7 +66,7 @@ layui.use(['jquery', 'form'], function () {
             console.log(user_ol);
 
             if (data.status === 0) {
-              layer.msg(data.rspMsg);
+              // layer.msg(data.rspMsg);
               layui.data('userData', {
                 key: 'user2',
                 value: data.data.id
@@ -98,7 +98,7 @@ layui.use(['jquery', 'form'], function () {
 
                   if (user_info == null) {
 
-                    location.href = `${context}/wechat/forwardPage/basic_info?user_id=`+ layui.data('userData').user2 +'&doctor_phone=' +localStorage.phoneNum
+                    location.href = `${context}/wechat/forwardPage/basic_info?user_id=`+ data.id +'&doctor_phone=' +localStorage.phoneNum
 
                   }
 

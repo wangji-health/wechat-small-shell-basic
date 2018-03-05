@@ -223,7 +223,8 @@ layui.use(['jquery', 'form'], function() {
 				if(data.status==0){
 					location.href = `${context}/wechat/forwardPage/post?user_id=`+user_Id+'&doctor_phone='
 				}else{
-					layer.msg(data.rspMsg)
+					layer.msg(data.rspMsg);
+					return false
 				}
 
 			},

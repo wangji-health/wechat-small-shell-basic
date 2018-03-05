@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const ipAddress = '192.168.8.102';
+const ipAddress = '192.168.8.29';
 const port = 3000;
 module.exports = {
   entry: {

@@ -41,6 +41,10 @@ layui.use('jquery', function() {
 		contentType: 'application/json;charset=utf-8',
 		success: function(data) {
 			console.log(data);
+      if(data.status != 0){
+        layer.msg(data.rspMsg);
+        return false
+      }
 
 			var medicine_List = data.data;
 

@@ -7,7 +7,6 @@ layui.use('jquery', function() {
 
 	//获取user_id
 	// var url = 'http://33061990.ngrok.io/wechat-web/wechat/forwardPage/bind_doctor?user_id=170908101424883232',
-
 		var url = location.href,
 
 		userId_startIndex = url.indexOf('user_id=') + 8,
@@ -81,6 +80,7 @@ layui.use('jquery', function() {
 
   //监听结束服用日期
   $('#endhave').on('change', function() {
+    $('.delBox1').hide()
     $('#endInput').val($('#endhave').val())
   })
 
@@ -90,9 +90,6 @@ layui.use('jquery', function() {
   })
   $('.inYes').on('click',function () {
     $('#endInput').val('至今');
-    $('.delBox1').hide()
-  });
-  $('.inNo').on('click',function () {
     $('.delBox1').hide()
   });
   $('#fendInput').on('click',function () {
@@ -155,8 +152,14 @@ layui.use('jquery', function() {
 			data: real_data,
 			contentType: 'application/json;charset=utf-8',
 			success: function(data) {
+				console.log(real_data)
 				console.log(data);
-				// location.href = `${context}/wechat/forwardPage/antivirus?user_id=` + user_Id;
+        if(data.status == 0){
+          location.href = `${context}/wechat/forwardPage/antivirus?user_id=` + user_Id;
+        }else{
+          layer.msg(data.rspMsg);
+          return false
+				}
 			},
 			error: function() {
 				console.log(data)
@@ -185,8 +188,14 @@ layui.use('jquery', function() {
 			data: del_url,
 			contentType: 'application/json;charset=utf-8',
 			success: function(data) {
-				console.log(data);
-				location.href = `${context}/wechat/forwardPage/antivirus?user_id=` + user_Id;
+        console.log(data);
+        if(data.status == 0){
+          location.href = `${context}/wechat/forwardPage/antivirus?user_id=` + user_Id;
+				}else{
+          layer.msg(data.rspMsg);
+          return false
+				}
+
 			},
 			error: function() {
 				console.log(data)

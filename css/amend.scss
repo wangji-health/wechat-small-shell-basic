@@ -211,7 +211,13 @@ input[type=text] {
 }
 
 #endhave{
-    @extend #have;
+    height: 3.375rem;
+    width: 100%;
+    border: none;
+    position: absolute;
+    z-index: 300;
+    opacity: 0;
+    left: 0;
 }
 
 //ceng
@@ -357,9 +363,11 @@ input[type=text] {
 }
 
 .cancel {
-    @extend .sure;
+    font-size: 1rem;
+    text-align: center;
+    height: 3rem!important;
+    line-height: 3rem;
     width: calc(48% - 2px);
-    height: 3rem;
     background-color: #FFFFFF;
     border: 1px solid rgba(41, 44, 52, 0.5);
     color: rgb(83, 83, 83);
@@ -542,7 +550,7 @@ input[type=text] {
     width: 100%;
     //background-color: yellow;
     text-align: right;
-    .cancel{
+    .cancelImg{
         height: 1rem!important;
         width: 1rem;
         margin:0.5rem 0.5rem 0 0;

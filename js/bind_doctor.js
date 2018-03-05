@@ -64,8 +64,14 @@ layui.use(['jquery', 'form'], function() {
 			dataType: 'json',
 			contentType: 'application/json;charset=utf-8',
 			success: function(data) {
+        console.log(data)
 
-				console.log(data)
+				if(data.status !=0){
+					layer.msg(data.rspMsg);
+					return false
+				}
+
+
 
 				console.log(data.data.length)
 
@@ -95,7 +101,10 @@ layui.use(['jquery', 'form'], function() {
 						dataType: 'json',
 						contentType: 'application/json;charset=utf-8',
 						success: function(data2) {
-
+              if(data.status !=0){
+                layer.msg(data.rspMsg)
+                return false
+              }
 							console.log(data2);
 							//返回医生列表
 
@@ -430,7 +439,8 @@ layui.use(['jquery', 'form'], function() {
 												sessionStorage.clear()
 												location.href = `${context}/wechat/forwardPage/post?user_id=`+user_Id + '&doctor_phone' + doctor_Phone
 											} else {
-												layer.msg(data.rspMsg)
+												layer.msg(data.rspMsg);
+												return false
 											}
 										},
 										error: function() {
@@ -524,7 +534,10 @@ layui.use(['jquery', 'form'], function() {
 							dataType: 'json',
 							contentType: 'application/json;charset=utf-8',
 							success: function(data) {
-
+								if(data.status !=0){
+									layer.msg(data.rspMsg)
+									return false
+								}
 								console.log(data);
 								// doctorList = data;
 								sessionStorage.doctorList = JSON.stringify(data);
@@ -803,7 +816,8 @@ layui.use(['jquery', 'form'], function() {
                       location.href = `${context}/wechat/forwardPage/post?user_id=`+user_Id+'&doctor_phone='+doctor_phone
                     })
 									} else {
-										layer.msg(data.rspMsg)
+										layer.msg(data.rspMsg);
+										return false
 									}
 								},
 								error: function() {

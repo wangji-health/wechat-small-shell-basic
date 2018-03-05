@@ -36,7 +36,11 @@ layui.use(['jquery', 'form'], function() {
 			dataType: 'json',
 			contentType: 'application/json;charset=utf-8',
 			success: function(data) {
-
+				console.log(data);
+        if (data.status != 0) {
+						layer.msg(data.rspMsg);
+          return false
+        }
 				console.log(data)
 
 				var user = data.data

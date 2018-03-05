@@ -473,8 +473,9 @@ layui.use(['jquery', 'form'], function () {
             contentType: 'application/json;charset=utf-8',
             success: function (data) {
               console.log(data);
-              if (data.data != 0) {
-                layer.msg(data.rspMsg)
+              if (data.status != 0) {
+                layer.msg(data.rspMsg);
+                return false
               }
               if( _data.is_Hepatitis == 0){
                 location.href = `${context}/wechat/forwardPage/thanks`;
