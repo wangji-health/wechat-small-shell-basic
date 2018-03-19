@@ -3,7 +3,6 @@ layui.use(['jquery', 'form'], function() {
 	var $ = layui.jquery,
 		layer = layui.layer,
 		form = layui.form();
-		
 	$().ready(function() {
 		//判断补充基本信息
 		//阻止缓存

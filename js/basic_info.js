@@ -6,7 +6,7 @@ layui.use(['jquery', 'form'], function () {
   var wxUrl = Main.urll('/wechat-web/wechat/getWXConfig');
   var $ = layui.jquery,
     layer = layui.layer,
-    form = layui.form();
+    form = layui.form();  
 
   $().ready(function () {
 
